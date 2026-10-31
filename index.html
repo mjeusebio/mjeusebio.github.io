@@ -1,1 +1,472 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mharve Eusebio Reel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap">
+<style>
+  :root {
+    --bg: #211d1e;
+    --bg2: #2b2627;
+    --line: #3f3839;
+    --fg: #ffffff;
+    --muted: #bdb5b7;
+    --accent: #84e5ff;
+    --accent-text: #84e5ff;
+    --accent-ink: #211d1e;
+    --font: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #ffffff; --bg2: #f3eff0; --line: #ddd5d7; --fg: #211d1e; --muted: #5f575a; --accent-text: #00647f;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #ffffff; --bg2: #f3eff0; --line: #ddd5d7; --fg: #211d1e; --muted: #5f575a; --accent-text: #00647f;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; font-weight: 400; line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    overflow-x: clip;
+  }
+  img { max-width: 100%; }
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  #sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
+  main { position: relative; z-index: 1; }
+  .in-w { max-width: 1240px; margin: 0 auto; }
+
+  .nav { position: fixed; left: 0; right: 0; top: 0; z-index: 20; padding: calc(14px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 14px max(16px, env(safe-area-inset-left, 0px));
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 92%, transparent), transparent); }
+  .brand { font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; }
+  .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .nav a.l { font-weight: 500; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--muted); padding: 6px 0; border-bottom: 1px solid transparent; }
+  .nav a.l:hover { color: var(--fg); border-color: var(--accent); }
+  .prog { position: fixed; left: 0; top: 0; height: 2px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); z-index: 30; }
+  .dots { position: fixed; right: max(14px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); z-index: 15; display: grid; gap: 14px; }
+  .dots a { display: block; width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--fg); opacity: 0.55; transition: all .25s; }
+  .dots a.on { background: var(--accent); border-color: var(--accent); opacity: 1; transform: scale(1.3); }
+
+  .label { font-weight: 500; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+  h1, h2, h3 { margin: 0; }
+  h1 { font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.02em; font-size: clamp(44px, 11.5vw, 168px); text-wrap: balance; }
+  h1 .sub { display: block; color: var(--accent-text); }
+  h2 { font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: clamp(28px, 5vw, 56px); line-height: 1.02; text-wrap: balance; }
+
+  .btn { display: inline-flex; align-items: center; gap: 12px; font: 600 12px/1 var(--font); letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; color: var(--fg); border: 1px solid var(--fg); padding: 16px 24px; background: transparent; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  .hero { min-height: 92svh; display: grid; align-content: end; padding-block: 120px 56px; position: relative; }
+  .hero-inner { display: grid; gap: 28px; }
+  .lede { max-width: 56ch; font-size: clamp(16px, 1.7vw, 20px); font-weight: 300; line-height: 1.65; margin: 0; }
+  .lede strong { font-weight: 600; }
+  .lede span { color: var(--muted); }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); max-width: 760px; }
+  .stat { padding: 18px 18px 0 0; display: grid; gap: 4px; align-content: start; min-width: 0; }
+  .stat + .stat { padding-left: 18px; border-left: 1px solid var(--line); }
+  .stat b { font-weight: 800; font-size: clamp(34px, 5vw, 60px); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+  .stat b.hl { color: var(--accent-text); }
+  .stat span { font-weight: 500; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+
+  .marquee { border-block: 1px solid var(--line); overflow: hidden; background: color-mix(in srgb, var(--bg) 80%, transparent); }
+  .track { display: flex; width: max-content; animation: slide 38s linear infinite; }
+  .track span { font-weight: 700; text-transform: uppercase; font-size: clamp(20px, 3vw, 34px); letter-spacing: 0.04em; padding: 18px 28px; white-space: nowrap; display: inline-flex; align-items: center; gap: 56px; }
+  .track span::after { content: ""; width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  section.s { padding-block: clamp(72px, 12vw, 160px); position: relative; }
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: clamp(36px, 6vw, 72px); }
+  .head .t { display: grid; gap: 14px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filters button { font: 500 11.5px var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); background: transparent; border: 1px solid var(--line); padding: 10px 14px; cursor: pointer; }
+  .filters button:hover { color: var(--fg); border-color: var(--fg); }
+  .filters button[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+
+  .belt { --gap: 24px; --card: 240px; overflow: hidden; padding-bottom: 60px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+  .belt-track { display: flex; width: max-content; animation: belt 60s linear infinite; will-change: transform; }
+  .belt:hover .belt-track, .belt:focus-within .belt-track { animation-play-state: paused; }
+  @keyframes belt { to { transform: translateX(-50%); } }
+  .ad { display: grid; gap: 12px; align-content: start; flex: 0 0 var(--card); width: var(--card); margin-right: var(--gap); min-width: 0; }
+  .tile { position: relative; display: block; aspect-ratio: 9 / 16; max-width: 100%; width: 100%; overflow: hidden; border: 1px solid var(--line); background: var(--bg2); text-decoration: none; color: #fff; isolation: isolate; }
+  a.tile:hover, a.tile:focus-visible { border-color: var(--accent); }
+  .clip { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: linear-gradient(165deg, #2d2829, #211d1e); }
+  .clip video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .clip::before, .clip::after { content: ""; position: absolute; width: 130%; aspect-ratio: 1; border-radius: 50%; filter: blur(34px); animation: drift 9s ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+  .clip::before { left: -40%; top: -10%; background: radial-gradient(circle, rgba(132,229,255,.55), transparent 65%); }
+  .clip::after { right: -50%; bottom: -25%; background: radial-gradient(circle, rgba(255,255,255,.22), transparent 65%); animation-duration: 12s; animation-direction: alternate-reverse; }
+  @keyframes drift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(22%, 18%, 0) scale(1.25); } }
+  .scan { position: absolute; left: 0; right: 0; height: 28%; z-index: 1; background: linear-gradient(to bottom, transparent, rgba(132,229,255,.16), transparent); animation: scan 4.5s linear infinite; animation-delay: var(--d, 0s); }
+  @keyframes scan { from { top: -30%; } to { top: 105%; } }
+  .tile .plat, .tile .len { position: absolute; z-index: 3; font: 600 10.5px var(--font); letter-spacing: 0.16em; text-transform: uppercase; background: #211d1e; color: #fff; padding: 5px 8px; }
+  .tile .plat { left: 10px; top: 10px; }
+  .tile .len { right: 10px; top: 10px; font-variant-numeric: tabular-nums; }
+  .tile .play { position: absolute; z-index: 3; inset: 0; display: grid; place-items: center; }
+  .tile .play span { width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid #fff; display: grid; place-items: center; background: rgba(33,29,30,.35); transition: transform .3s, background .3s, border-color .3s; }
+  .tile .play svg { width: 20px; height: 20px; margin-left: 3px; fill: #fff; transition: fill .3s; }
+  a.tile:hover .play span, a.tile:focus-visible .play span { transform: scale(1.12); background: var(--accent); border-color: var(--accent); }
+  a.tile:hover .play svg, a.tile:focus-visible .play svg { fill: #211d1e; }
+  .tile .bar { position: absolute; z-index: 3; left: 10px; right: 10px; bottom: 12px; height: 2px; background: rgba(255,255,255,.25); }
+  .tile .bar i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0.08); transition: transform .5s; }
+  .tile:hover .bar i, .tile:focus-visible .bar i { transform: scaleX(1); transition: transform 6s linear; }
+  .tile.empty .play span { border-style: dashed; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+  .tag { font-weight: 500; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  .tag.kind { color: var(--accent-text); font-weight: 700; }
+  .ad h3 { font-weight: 700; font-size: 17px; line-height: 1.25; letter-spacing: 0.005em; text-transform: uppercase; }
+  .ad p { margin: 0; font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+
+  .rows { border-top: 1px solid var(--line); }
+  .row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 12px 40px; padding-block: 34px; border-bottom: 1px solid var(--line); transition: background .25s, padding .25s; }
+  .row:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); padding-left: 14px; }
+  .row h3 { font-weight: 700; font-size: clamp(22px, 3.2vw, 38px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; }
+  .row p { margin: 0; color: var(--muted); font-weight: 300; font-size: clamp(15px, 1.5vw, 18px); max-width: 52ch; }
+
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: s; }
+  .step { display: grid; gap: 12px; align-content: start; padding-top: 22px; position: relative; counter-increment: s; }
+  .step::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--line); }
+  .step::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); transition-delay: var(--sd, 0s); }
+  .step.in::after { transform: scaleX(1); }
+  .step .n { font-weight: 800; font-size: 14px; letter-spacing: 0.16em; color: var(--accent-text); }
+  .step .n::before { content: "0" counter(s); }
+  .step h3 { font-weight: 700; font-size: 20px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .step p { margin: 0; color: var(--muted); font-weight: 300; font-size: 15px; }
+
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+  .chip { font-weight: 600; font-size: 13px; letter-spacing: 0.04em; border: 1px solid var(--fg); padding: 9px 14px; }
+  .chip.soft { font-weight: 400; border-color: var(--line); color: var(--muted); }
+  .note { color: var(--muted); font-weight: 300; font-size: 14px; max-width: 60ch; margin: 22px 0 0; }
+
+  .contact { min-height: 80svh; display: grid; align-content: center; gap: 36px; }
+  .contact h2 { font-weight: 800; font-size: clamp(40px, 9vw, 128px); line-height: 0.95; letter-spacing: -0.02em; }
+  .contact h2 em { font-style: normal; color: var(--accent-text); }
+  .crows { display: grid; gap: 14px; max-width: 640px; }
+  .crow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+  .crow .v { font-weight: 600; font-size: clamp(18px, 2.4vw, 28px); user-select: all; overflow-wrap: anywhere; min-width: 0; }
+  .crow .btn { padding: 11px 16px; }
+  footer { border-top: 1px solid var(--line); padding-block: 26px calc(30px + 8px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; color: var(--muted); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; position: relative; z-index: 1; background: color-mix(in srgb, var(--bg) 80%, transparent); }
+
+  .rv { transform: translateY(32px); transition: transform .9s cubic-bezier(.2,.7,.2,1); }
+  .rv.in { transform: none; }
+
+  @media (max-width: 860px) {
+    .nav ul { display: none; }
+    .dots { display: none; }
+    .steps { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+    .row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .belt { --card: 190px; --gap: 14px; }
+    .ad h3 { font-size: 14px; }
+    .ad p { font-size: 13px; }
+    .tile .play span { width: 46px; height: 46px; }
+    .tile .len { display: none; }
+    .stat span { font-size: 10px; letter-spacing: 0.1em; }
+    .stat { padding-right: 10px; }
+    .stat + .stat { padding-left: 10px; }
+    .steps { grid-template-columns: 1fr; }
+    .btn { padding: 14px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .belt { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+    .rv { transform: none; }
+    .step::after { transform: scaleX(1); }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="prog" id="prog"></div>
+
+<header class="nav">
+  <a class="brand" href="#top">M. Eusebio</a>
+  <ul>
+    <li><a class="l" href="#work">Work</a></li>
+    <li><a class="l" href="#services">Services</a></li>
+    <li><a class="l" href="#tools">Tools</a></li>
+    <li><a class="l" href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+<nav class="dots" id="dots" aria-label="Sections">
+  <a href="#top" data-s="top" aria-label="Intro"></a>
+  <a href="#work" data-s="work" aria-label="Work"></a>
+  <a href="#services" data-s="services" aria-label="Services"></a>
+  <a href="#tools" data-s="tools" aria-label="Tools"></a>
+  <a href="#contact" data-s="contact" aria-label="Contact"></a>
+</nav>
+
+<main>
+  <div class="in-w">
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="label" data-speed="-0.1">Video editor · Photo editor · UGC &amp; AI ads · Manila, remote</div>
+        <h1 data-speed="-0.22">Mharve Justine <span class="sub">Eusebio</span></h1>
+        <p class="lede" data-speed="-0.14">Experienced <strong>UGC and AI ads creator and editor</strong> with 2+ years of professional AI experience. I make short-form ads for brands: <strong>UGC-style avatar ads</strong> with realistic AI people, <strong>Pixar-style 3D animated story ads</strong> and <strong>cinematic AI short films</strong>. <span>Every ad opens on a hook built for the first 3 seconds, and I cut several versions of each so you can test what wins.</span></p>
+        <div class="stats" data-speed="-0.07">
+          <div class="stat"><b class="hl" id="yrs">2+</b><span>Years professional AI</span></div>
+          <div class="stat"><b>300+</b><span>Ads created</span></div>
+          <div class="stat"><b>9:16</b><span>Vertical first</span></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+          <a class="btn" href="#work">See the work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="marquee" aria-label="Tools and models">
+    <div class="track" id="track"></div>
+  </div>
+
+  <div class="in-w">
+    <section class="s" id="work" aria-labelledby="work-h">
+      <div class="head">
+        <div class="t rv"><div class="label">Selected work</div><h2 id="work-h">Ads in orbit</h2></div>
+        <div class="filters rv" role="group" aria-label="Filter work" id="filters"></div>
+      </div>
+      <div class="belt" id="belt"><div class="belt-track" id="beltTrack"></div></div>
+    </section>
+
+    <section class="s" id="services" aria-labelledby="svc-h">
+      <div class="head"><div class="t rv"><div class="label">What I make</div><h2 id="svc-h">Ways I can help</h2></div></div>
+      <div class="rows rv">
+        <div class="row"><h3>UGC AI avatar ads</h3><p>Realistic AI creators that talk to camera, with hook variations, captions, B-roll and a clear call to action.</p></div>
+        <div class="row"><h3>3D animated story ads</h3><p>Pixar-style characters and organ cutaways that tell a problem-to-solution story in one video.</p></div>
+        <div class="row"><h3>Realistic AI short films</h3><p>Live-action-look story ads built from several sets and scenes, edited like a real film.</p></div>
+        <div class="row"><h3>Multimedia editing</h3><p>Video editing in Premiere Pro plus photo retouching, color grading and product or portrait cleanup in Photoshop and Lightroom.</p></div>
+      </div>
+
+      <div class="head" style="margin-top:clamp(72px,10vw,130px)"><div class="t rv"><div class="label">How I work</div><h2>Hook to delivery</h2></div></div>
+      <div class="steps" id="steps">
+        <div class="step rv" style="--sd:0s"><span class="n"></span><h3>Hook and script</h3><p>I write or sharpen the first 3 seconds and the story around it.</p></div>
+        <div class="step rv" style="--sd:.15s"><span class="n"></span><h3>Generate shots</h3><p>Characters, scenes and motion made with image and video models, kept consistent across shots.</p></div>
+        <div class="step rv" style="--sd:.3s"><span class="n"></span><h3>Edit in Premiere</h3><p>Pacing, captions, sound and color, cut to 9:16.</p></div>
+        <div class="step rv" style="--sd:.45s"><span class="n"></span><h3>Deliver variations</h3><p>Several hooks and lengths of the same ad, ready to test.</p></div>
+      </div>
+    </section>
+
+    <section class="s" id="tools" aria-labelledby="tools-h">
+      <div class="head"><div class="t rv"><div class="label">Toolkit</div><h2 id="tools-h">Stack and models</h2></div></div>
+      <div class="tools-grid rv">
+        <div><div class="label">Core stack</div><div class="chips" id="tools-core"></div></div>
+        <div><div class="label">Partner models in Firefly and Higgsfield</div><div class="chips" id="tools-models"></div></div>
+      </div>
+      <p class="note rv">Higgsfield and Adobe Firefly both let me switch between several video and image models in one workspace, so I pick the model that suits each shot.</p>
+    </section>
+
+    <section class="s contact" id="contact" aria-labelledby="contact-h">
+      <div class="label rv">Contact</div>
+      <h2 id="contact-h" class="rv">Ads that stop the <em>scroll.</em></h2>
+      <div class="crows rv">
+        <div class="crow"><span class="v" id="email">mjeusebio08@gmail.com</span><button class="btn" type="button" data-copy="email">Copy email</button></div>
+        <div class="crow"><span class="v" id="phone">(+63) 927 308 3401</span><button class="btn" type="button" data-copy="phone">Copy number</button></div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <span>Mharve Justine Eusebio · Manila, Philippines</span>
+    <span>Remote · 2+ years professional AI experience</span>
+  </footer>
+</main>
+
+<script>
+  /* ============================================================
+     EDIT HERE. One object per ad.
+     url:  link to the post (TikTok, Instagram Reel, YouTube Short, Facebook Reel)
+     clip: optional short looping .mp4 (e.g. "clips/hook.mp4"). Plays muted on hover.
+           Leave "" to show the animated placeholder.
+     kind: "real" (realistic AI people), "3d" (Pixar-style), "film" (AI short film), "photo", "other"
+     Remove `sample: true` once the entry is your real work.
+     ============================================================ */
+  const ADS = [
+    { kind: "real", platform: "TikTok", url: "", clip: "", length: "0:45", lang: "English", title: "UGC avatar hook test", desc: "Realistic AI creator opens with a problem hook, shows the product and ends on a clear call to action.", sample: true },
+    { kind: "3d", platform: "Instagram", url: "", clip: "", length: "1:20", lang: "English", title: "Pixar-style story ad", desc: "3D animated character story that goes from the problem to a simple fix, with a cutaway to show how it works.", sample: true },
+    { kind: "film", platform: "YouTube", url: "", clip: "", length: "1:05", lang: "English", title: "AI short film ad", desc: "Cinematic story ad across several sets with a doctor scene and a friend who shares the answer.", sample: true },
+    { kind: "real", platform: "Facebook", url: "", clip: "", length: "0:38", lang: "Filipino", title: "Testimonial-style reel", desc: "Realistic AI person tells a short before-and-after story in a casual, phone-shot look.", sample: true },
+    { kind: "3d", platform: "TikTok", url: "", clip: "", length: "0:52", lang: "English", title: "3D explainer ad", desc: "Animated explainer that flies through the body to show what the product does, day by day.", sample: true },
+    { kind: "real", platform: "Instagram", url: "", clip: "", length: "0:30", lang: "English", title: "Product demo avatar ad", desc: "Fast UGC-style product demo with captions, B-roll and three alternate hooks.", sample: true },
+    { kind: "photo", platform: "Instagram", url: "", clip: "", length: "Photo", lang: "", title: "Photo retouch set", desc: "Portrait and product edits with color grading and cleanup in Photoshop and Lightroom.", sample: true },
+    { kind: "film", platform: "YouTube", url: "", clip: "", length: "0:58", lang: "English", title: "AI drama Short", desc: "Live-action-look AI drama cut for Shorts, with a strong first-3-seconds hook.", sample: true }
+  ];
+  const KINDS = { real: "Realistic AI", "3d": "3D animated", film: "AI short film", photo: "Photo edit", other: "Other" };
+  const FILTERS = [["all", "All"], ["real", "Realistic AI"], ["3d", "3D animated"], ["film", "AI short films"], ["photo", "Photo"]];
+  const CORE_TOOLS = ["Claude", "Google Flow", "Premiere Pro", "Photoshop", "Lightroom", "Adobe Firefly", "Higgsfield"];
+  const MODEL_TOOLS = ["Google Veo", "Nano Banana", "Kling", "Runway Gen-4", "Luma Ray", "Sora 2", "Seedance", "FLUX", "GPT Image", "Topaz"];
+
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>';
+
+  function tile(a, i) {
+    const clip = '<span class="clip" style="--d:' + (-(i * 1.7)).toFixed(1) + 's">' + (a.clip ? '<video muted loop playsinline preload="metadata" src="' + esc(a.clip) + '"></video>' : '') + '</span>' +
+      (a.clip ? '' : '<span class="scan" style="--d:' + (-(i * 0.9)).toFixed(1) + 's"></span>');
+    const inner = clip + '<span class="plat">' + esc(a.platform) + '</span><span class="len">' + esc(a.length) + '</span><span class="play"><span>' + PLAY + '</span></span><span class="bar"><i></i></span>';
+    if (a.url) return '<a class="tile" href="' + esc(a.url) + '" target="_blank" rel="noopener" aria-label="Watch ' + esc(a.title) + ' on ' + esc(a.platform) + '">' + inner + '</a>';
+    return '<div class="tile empty" role="img" aria-label="' + esc(a.title) + ', video link not added yet">' + inner + '</div>';
+  }
+  function card(a, i) {
+    const tags = ['<span class="tag kind">' + esc(KINDS[a.kind] || KINDS.other) + '</span>'];
+    if (a.lang) tags.push('<span class="tag">' + esc(a.lang) + '</span>');
+    if (a.sample) tags.push('<span class="tag">Sample slot</span>');
+    return '<article class="ad" data-k="' + esc(a.kind) + '">' + tile(a, i) +
+      '<div class="meta">' + tags.join("") + '</div><h3>' + esc(a.title) + '</h3><p>' + esc(a.desc) + '</p></article>';
+  }
+  const beltTrack = document.getElementById("beltTrack");
+  function renderBelt(f) {
+    const list = ADS.map((a, i) => ({ a, i })).filter(o => f === "all" || o.a.kind === f);
+    const set = list.map(o => card(o.a, o.i)).join("");
+    const reps = Math.max(1, Math.ceil(12 / Math.max(1, list.length)));
+    const half = set.repeat(reps);
+    const clone = half.replace(/<article class="ad"/g, '<article class="ad" inert aria-hidden="true"');
+    beltTrack.innerHTML = half + clone;
+    bindClips(beltTrack);
+    requestAnimationFrame(() => {
+      const w = beltTrack.scrollWidth / 2;
+      beltTrack.style.animationDuration = Math.max(20, w / 45).toFixed(1) + "s";
+    });
+  }
+  document.getElementById("tools-core").innerHTML = CORE_TOOLS.map(t => '<span class="chip">' + esc(t) + '</span>').join("");
+  document.getElementById("tools-models").innerHTML = MODEL_TOOLS.map(t => '<span class="chip soft">' + esc(t) + '</span>').join("");
+  const mq = CORE_TOOLS.concat(MODEL_TOOLS).map(t => '<span>' + esc(t) + '</span>').join("");
+  document.getElementById("track").innerHTML = mq + mq;
+
+  function bindClips(root) {
+    root.querySelectorAll(".tile").forEach(t => {
+      const v = t.querySelector("video"); if (!v) return;
+      const go = () => { try { v.play().catch(() => {}); } catch (e) {} };
+      const stop = () => { v.pause(); };
+      t.addEventListener("mouseenter", go); t.addEventListener("focus", go);
+      t.addEventListener("mouseleave", stop); t.addEventListener("blur", stop);
+    });
+  }
+  renderBelt("all");
+
+  const present = new Set(ADS.map(a => a.kind));
+  const bar = document.getElementById("filters");
+  bar.innerHTML = FILTERS.filter(f => f[0] === "all" || present.has(f[0]))
+    .map(f => '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (f[0] === "all") + '">' + f[1] + '</button>').join("");
+  bar.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    bar.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    renderBelt(b.dataset.f);
+  });
+
+  document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", () => {
+    const src = document.getElementById(btn.dataset.copy), orig = btn.textContent;
+    const done = () => { btn.textContent = "Copied"; setTimeout(() => { btn.textContent = orig; }, 1800); };
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(src);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = "Press Ctrl+C"; setTimeout(() => { btn.textContent = orig; }, 2500);
+    };
+    try { navigator.clipboard.writeText(src.textContent).then(done, fallback); } catch (e) { fallback(); }
+  }));
+
+  const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.15 }) : null;
+  document.querySelectorAll(".rv").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+
+  const par = Array.from(document.querySelectorAll("[data-speed]"));
+  const prog = document.getElementById("prog");
+  const dots = Array.from(document.querySelectorAll("#dots a"));
+  const secs = ["top", "work", "services", "tools", "contact"].map(id => document.getElementById(id));
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const vh = innerHeight, sy = scrollY;
+      const max = document.documentElement.scrollHeight - vh;
+      prog.style.transform = "scaleX(" + (max > 0 ? Math.min(1, sy / max) : 0) + ")";
+      if (!reduce) par.forEach(el => {
+        const r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < -400 || r.top > vh + 400) return;
+        const y = ((r.top + r.height / 2) - vh / 2) * parseFloat(el.dataset.speed);
+        el.style.transform = "translate3d(0," + y.toFixed(1) + "px,0)";
+      });
+      let cur = 0; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < vh * 0.45) cur = i; });
+      dots.forEach((d, i) => d.classList.toggle("on", i === cur));
+    });
+  }
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+  onScroll();
+
+  const cv = document.getElementById("sky"), ctx = cv.getContext("2d");
+  let W = 0, H = 0, DPR = 1, C = { fg: "#fff", accent: "#84e5ff" };
+  function readColors() {
+    const cs = getComputedStyle(document.documentElement);
+    C.fg = cs.getPropertyValue("--fg").trim() || "#fff";
+    const light = cs.getPropertyValue("--bg").trim().toLowerCase() === "#ffffff";
+    C.accent = light ? "#00647f" : "#84e5ff";
+  }
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const stars = Array.from({ length: 150 }, () => ({ x: Math.random(), y: Math.random(), z: rnd(0.2, 1), tw: rnd(0, 6.28) }));
+  const frames = Array.from({ length: 7 }, (_, i) => ({ x: rnd(0.05, 0.95), y: rnd(0, 1), w: rnd(34, 78), r: rnd(-0.5, 0.5), vr: rnd(-0.0004, 0.0004), vx: rnd(-6, 6), z: rnd(0.25, 0.9), a: i % 3 === 0 }));
+  function size() {
+    DPR = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = W * DPR; cv.height = H * DPR;
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  const wrap = (v, m) => ((v % m) + m) % m;
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    const sy = scrollY;
+    ctx.fillStyle = C.fg;
+    stars.forEach(s => {
+      const x = wrap(s.x * W - t * 0.004 * s.z * 12, W);
+      const y = wrap(s.y * H - sy * 0.35 * s.z, H);
+      ctx.globalAlpha = (0.25 + 0.5 * s.z) * (0.75 + 0.25 * Math.sin(t * 0.0015 + s.tw));
+      const r = 0.6 + s.z * 1.1;
+      ctx.fillRect(x, y, r, r);
+    });
+    const cx = W * 0.74, cy = H * 0.42 - sy * 0.28, R = Math.min(W, H) * 0.4;
+    ctx.lineWidth = 1; ctx.strokeStyle = C.fg;
+    ctx.globalAlpha = 0.13; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.stroke();
+    ctx.setLineDash([3, 9]); ctx.globalAlpha = 0.2; ctx.beginPath(); ctx.arc(cx, cy, R * 0.68, 0, 6.283); ctx.stroke(); ctx.setLineDash([]);
+    const ang = t * 0.00035;
+    ctx.fillStyle = C.accent; ctx.globalAlpha = 0.95;
+    ctx.beginPath(); ctx.arc(cx + Math.cos(ang) * R, cy + Math.sin(ang) * R, 4, 0, 6.283); ctx.fill();
+    ctx.globalAlpha = 0.6;
+    ctx.beginPath(); ctx.arc(cx + Math.cos(-ang * 1.6 + 2) * R * 0.68, cy + Math.sin(-ang * 1.6 + 2) * R * 0.68, 3, 0, 6.283); ctx.fill();
+    frames.forEach(f => {
+      const w = f.w, h = w * 16 / 9, m = h + 80;
+      const x = wrap(f.x * W + t * 0.001 * f.vx * 8, W + 160) - 80;
+      const y = wrap(f.y * (H + m) - sy * 0.5 * f.z, H + m) - m * 0.6;
+      ctx.save(); ctx.translate(x, y); ctx.rotate(f.r + t * f.vr);
+      ctx.globalAlpha = 0.14 + 0.3 * f.z * 0.6; ctx.strokeStyle = f.a ? C.accent : C.fg; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
+      ctx.fillStyle = f.a ? C.accent : C.fg; ctx.globalAlpha *= 0.9;
+      ctx.beginPath(); ctx.moveTo(-w * 0.12, -w * 0.18); ctx.lineTo(w * 0.2, 0); ctx.lineTo(-w * 0.12, w * 0.18); ctx.closePath(); ctx.fill();
+      ctx.restore();
+    });
+    ctx.globalAlpha = 1;
+  }
+  function loop(t) { draw(t); requestAnimationFrame(loop); }
+  size(); readColors();
+  addEventListener("resize", () => { size(); if (reduce) draw(0); });
+  matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => { readColors(); if (reduce) draw(0); });
+  new MutationObserver(() => { readColors(); if (reduce) draw(0); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  if (reduce) { draw(0); addEventListener("scroll", () => draw(0), { passive: true }); } else requestAnimationFrame(loop);
+</script>
+
+</body>
+</html>
