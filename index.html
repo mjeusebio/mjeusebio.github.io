@@ -93,10 +93,8 @@
   .filters button:hover { color: var(--fg); border-color: var(--fg); }
   .filters button[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
 
-  .belt { --gap: 24px; --card: 240px; overflow: hidden; padding-bottom: 60px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-  .belt-track { display: flex; width: max-content; animation: belt 60s linear infinite; will-change: transform; }
-  .belt:hover .belt-track, .belt:focus-within .belt-track { animation-play-state: paused; }
-  @keyframes belt { to { transform: translateX(-50%); } }
+  .belt { --gap: 24px; --card: 240px; overflow-x: auto; padding-bottom: 24px; scrollbar-width: thin; }
+  .belt-track { display: flex; width: max-content; }
   .slot { display: grid; gap: 12px; align-content: start; flex: 0 0 var(--card); width: var(--card); margin-right: var(--gap); min-width: 0; }
   .slot--wide { flex-basis: calc(var(--card) * 1.7); width: calc(var(--card) * 1.7); }
   .slot__media { position: relative; display: block; aspect-ratio: 9 / 16; width: 100%; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(165deg, #2d2829, #211d1e); isolation: isolate; }
@@ -110,6 +108,12 @@
   .slot__empty { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; text-align: center; padding: 12px; font: 600 11px var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: #fff; }
   .slot__title { font-weight: 700; font-size: 17px; line-height: 1.25; letter-spacing: 0.005em; text-transform: uppercase; }
   .slot__meta { margin: 0; font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+  .vol { position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 3; display: flex; align-items: center; gap: 8px; padding: 6px 10px; background: rgba(33,29,30,.82); opacity: 0; transition: opacity .2s; }
+  .slot__media:hover .vol, .slot__media:focus-within .vol { opacity: 1; }
+  @media (hover: none) { .vol { opacity: 1; } }
+  .vol__btn { flex: none; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; background: none; color: #fff; cursor: pointer; }
+  .vol__btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .vol__bar { flex: 1; min-width: 0; height: 18px; margin: 0; accent-color: var(--accent); cursor: pointer; }
 
   .rows { border-top: 1px solid var(--line); }
   .row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 12px 40px; padding-block: 34px; border-bottom: 1px solid var(--line); transition: background .25s, padding .25s; }
@@ -346,39 +350,61 @@
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  /* slots live in the HTML above; they are pulled out here so the belt can filter and loop them */
+  /* slots live in the HTML above; they are pulled out here so the filter buttons can swap them */
   const beltTrack = document.getElementById("beltTrack");
   const SLOTS = Array.from(beltTrack.querySelectorAll(".slot"));
   SLOTS.forEach(sl => sl.remove());
   function renderBelt(f) {
-    const list = SLOTS.filter(sl => f === "all" || sl.dataset.k === f);
-    const reps = Math.max(1, Math.ceil(12 / Math.max(1, list.length)));
     beltTrack.replaceChildren();
-    for (let r = 0; r < reps; r++) list.forEach(sl => beltTrack.appendChild(sl.cloneNode(true)));
-    const half = beltTrack.children.length;
-    for (let i = 0; i < half; i++) {
-      const c = beltTrack.children[i].cloneNode(true);
-      c.setAttribute("inert", ""); c.setAttribute("aria-hidden", "true");
-      beltTrack.appendChild(c);
-    }
+    SLOTS.filter(sl => f === "all" || sl.dataset.k === f).forEach(sl => beltTrack.appendChild(sl.cloneNode(true)));
     bindClips(beltTrack);
-    requestAnimationFrame(() => {
-      const w = beltTrack.scrollWidth / 2;
-      beltTrack.style.animationDuration = Math.max(20, w / 45).toFixed(1) + "s";
-    });
   }
   document.getElementById("tools-core").innerHTML = CORE_TOOLS.map(t => '<span class="chip">' + esc(t) + '</span>').join("");
   document.getElementById("tools-models").innerHTML = MODEL_TOOLS.map(t => '<span class="chip soft">' + esc(t) + '</span>').join("");
   const mq = CORE_TOOLS.concat(MODEL_TOOLS).map(t => '<span>' + esc(t) + '</span>').join("");
   document.getElementById("track").innerHTML = mq + mq;
 
+  /* hover play + volume bar. The level a viewer picks carries over to the other videos. */
+  const pref = { vol: 0.8, muted: true };
+  const ICON_ON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>';
+  const ICON_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M23 9l-6 6M17 9l6 6"/></svg>';
   function bindClips(root) {
     root.querySelectorAll(".slot__media").forEach(t => {
       const v = t.querySelector("video"); if (!v) return;
-      const go = () => { try { v.play().catch(() => {}); } catch (e) {} };
+      const ctl = document.createElement("div");
+      ctl.className = "vol";
+      ctl.innerHTML = '<button class="vol__btn" type="button" aria-label="Mute or unmute"></button><input class="vol__bar" type="range" min="0" max="1" step="0.05" aria-label="Volume">';
+      t.appendChild(ctl);
+      const btn = ctl.querySelector(".vol__btn"), bar = ctl.querySelector(".vol__bar");
+      const sync = () => {
+        const off = v.muted || v.volume === 0;
+        btn.innerHTML = off ? ICON_OFF : ICON_ON;
+        bar.value = off ? 0 : v.volume;
+      };
+      const apply = () => { v.volume = pref.vol; v.muted = pref.muted; sync(); };
+      bar.addEventListener("input", () => {
+        const x = parseFloat(bar.value);
+        pref.muted = x === 0;
+        if (x > 0) pref.vol = x;
+        apply();
+        if (!pref.muted) v.play().catch(() => {});
+      });
+      btn.addEventListener("click", () => {
+        pref.muted = !(pref.muted || v.volume === 0);
+        if (!pref.muted && pref.vol === 0) pref.vol = 0.8;
+        apply();
+        if (!pref.muted) v.play().catch(() => {});
+      });
+      ctl.addEventListener("click", e => e.stopPropagation());
+      const go = () => {
+        apply();
+        v.play().catch(() => { pref.muted = true; apply(); v.play().catch(() => {}); });
+      };
       const stop = () => { v.pause(); };
-      t.addEventListener("mouseenter", go); t.addEventListener("focus", go);
-      t.addEventListener("mouseleave", stop); t.addEventListener("blur", stop);
+      t.addEventListener("mouseenter", go);
+      t.addEventListener("mouseleave", stop);
+      t.addEventListener("click", () => { v.paused ? go() : stop(); });
+      sync();
     });
   }
   renderBelt("all");
