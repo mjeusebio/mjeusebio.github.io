@@ -242,7 +242,7 @@
         <article class="slot" data-k="real">
           <div class="slot__media">
             <span class="slot__chip">TikTok</span>
-           <video src="assets/Pixar Style.mp4" loop playsinline preload="metadata"></video>
+             <video src="assets/Pixar Style.mp4" loop playsinline preload="metadata"></video>
           </div>
           <div class="slot__info">
             <small class="slot__kind">Realistic AI · English</small>
@@ -426,9 +426,9 @@
         apply();
         v.play().catch(() => { pref.muted = true; apply(); v.play().catch(() => {}); });
       };
-      vp.addEventListener("click", toggle);
+      vp.addEventListener("click", e => { e.stopPropagation(); toggle(); });
       t.addEventListener("click", e => { if (!e.target.closest(".vp")) toggle(); });
-      mb.addEventListener("click", () => { pref.muted = !pref.muted; apply(); });
+      mb.addEventListener("click", e => { e.stopPropagation(); pref.muted = !pref.muted; apply(); });
       v.addEventListener("play", () => {
         syncPlay();
         root.querySelectorAll("video").forEach(o => { if (o !== v) o.pause(); });
