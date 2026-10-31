@@ -110,10 +110,10 @@
   .slot__chip { position: absolute; left: 14px; top: 14px; z-index: 2; font: 600 10.5px var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: #f4f4f4; background: rgba(0,0,0,.6); border-radius: 99px; padding: 4px 10px; }
   .slot__media:has(video) .slot__chip, .slot__media:has(iframe) .slot__chip { display: none; }
   .slot__media video { cursor: pointer; }
-  .vp--mute { left: auto; right: 12px; }
   .vp { position: absolute; left: 12px; bottom: 12px; z-index: 3; display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border: 0; border-radius: 50%; background: var(--accent); color: var(--accent-ink); cursor: pointer; transition: transform .2s; }
   .vp:hover { transform: scale(1.1); }
   .vp svg { width: 20px; height: 20px; fill: currentColor; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .vp.vp--mute { left: auto; right: 12px; }
 
   .rows { border-top: 1px solid var(--line); }
   .row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 12px 40px; padding-block: 34px; border-bottom: 1px solid var(--line); transition: background .25s, padding .25s; }
@@ -242,7 +242,7 @@
         <article class="slot" data-k="real">
           <div class="slot__media">
             <span class="slot__chip">TikTok</span>
-             <video src="assets/Pixar Style.mp4" loop playsinline preload="metadata"></video>
+           <video src="assets/Pixar Style.mp4" loop playsinline preload="metadata"></video>
           </div>
           <div class="slot__info">
             <small class="slot__kind">Realistic AI · English</small>
@@ -396,7 +396,7 @@
   document.getElementById("track").innerHTML = mq + mq;
 
   /* round play button (bottom left) and mute toggle (bottom right) on every video. The sound choice carries over to the other videos. */
-  const pref = { vol: 0.8, muted: false };
+  const pref = { muted: false };
   const SPK = '<path d="M11 5L6 9H2v6h4l5 4V5z"/>';
   const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l13 8-13 8z"/></svg>';
   const ICON_PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
@@ -420,7 +420,7 @@
         mb.setAttribute("aria-label", v.muted ? "Unmute" : "Mute");
         mb.setAttribute("aria-pressed", String(v.muted));
       };
-      const apply = () => { v.volume = pref.vol; v.muted = pref.muted; syncVol(); };
+      const apply = () => { v.muted = pref.muted; syncVol(); };
       const toggle = () => {
         if (!v.paused) { v.pause(); return; }
         apply();
