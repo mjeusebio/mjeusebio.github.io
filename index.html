@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -98,34 +97,19 @@
   .belt-track { display: flex; width: max-content; animation: belt 60s linear infinite; will-change: transform; }
   .belt:hover .belt-track, .belt:focus-within .belt-track { animation-play-state: paused; }
   @keyframes belt { to { transform: translateX(-50%); } }
-  .ad { display: grid; gap: 12px; align-content: start; flex: 0 0 var(--card); width: var(--card); margin-right: var(--gap); min-width: 0; }
-  .tile { position: relative; display: block; aspect-ratio: 9 / 16; max-width: 100%; width: 100%; overflow: hidden; border: 1px solid var(--line); background: var(--bg2); text-decoration: none; color: #fff; isolation: isolate; }
-  a.tile:hover, a.tile:focus-visible { border-color: var(--accent); }
-  .clip { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: linear-gradient(165deg, #2d2829, #211d1e); }
-  .clip video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .clip::before, .clip::after { content: ""; position: absolute; width: 130%; aspect-ratio: 1; border-radius: 50%; filter: blur(34px); animation: drift 9s ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
-  .clip::before { left: -40%; top: -10%; background: radial-gradient(circle, rgba(132,229,255,.55), transparent 65%); }
-  .clip::after { right: -50%; bottom: -25%; background: radial-gradient(circle, rgba(255,255,255,.22), transparent 65%); animation-duration: 12s; animation-direction: alternate-reverse; }
+  .slot { display: grid; gap: 12px; align-content: start; flex: 0 0 var(--card); width: var(--card); margin-right: var(--gap); min-width: 0; }
+  .slot--wide { flex-basis: calc(var(--card) * 1.7); width: calc(var(--card) * 1.7); }
+  .slot__media { position: relative; display: block; aspect-ratio: 9 / 16; width: 100%; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(165deg, #2d2829, #211d1e); isolation: isolate; }
+  .slot--square .slot__media { aspect-ratio: 1 / 1; }
+  .slot--wide .slot__media { aspect-ratio: 16 / 9; }
+  .slot__media::before, .slot__media::after { content: ""; position: absolute; width: 130%; aspect-ratio: 1; border-radius: 50%; filter: blur(34px); animation: drift 9s ease-in-out infinite alternate; z-index: 0; }
+  .slot__media::before { left: -40%; top: -10%; background: radial-gradient(circle, rgba(132,229,255,.55), transparent 65%); }
+  .slot__media::after { right: -50%; bottom: -25%; background: radial-gradient(circle, rgba(255,255,255,.22), transparent 65%); animation-duration: 12s; animation-direction: alternate-reverse; }
   @keyframes drift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(22%, 18%, 0) scale(1.25); } }
-  .scan { position: absolute; left: 0; right: 0; height: 28%; z-index: 1; background: linear-gradient(to bottom, transparent, rgba(132,229,255,.16), transparent); animation: scan 4.5s linear infinite; animation-delay: var(--d, 0s); }
-  @keyframes scan { from { top: -30%; } to { top: 105%; } }
-  .tile .plat, .tile .len { position: absolute; z-index: 3; font: 600 10.5px var(--font); letter-spacing: 0.16em; text-transform: uppercase; background: #211d1e; color: #fff; padding: 5px 8px; }
-  .tile .plat { left: 10px; top: 10px; }
-  .tile .len { right: 10px; top: 10px; font-variant-numeric: tabular-nums; }
-  .tile .play { position: absolute; z-index: 3; inset: 0; display: grid; place-items: center; }
-  .tile .play span { width: 64px; height: 64px; border-radius: 50%; border: 1.5px solid #fff; display: grid; place-items: center; background: rgba(33,29,30,.35); transition: transform .3s, background .3s, border-color .3s; }
-  .tile .play svg { width: 20px; height: 20px; margin-left: 3px; fill: #fff; transition: fill .3s; }
-  a.tile:hover .play span, a.tile:focus-visible .play span { transform: scale(1.12); background: var(--accent); border-color: var(--accent); }
-  a.tile:hover .play svg, a.tile:focus-visible .play svg { fill: #211d1e; }
-  .tile .bar { position: absolute; z-index: 3; left: 10px; right: 10px; bottom: 12px; height: 2px; background: rgba(255,255,255,.25); }
-  .tile .bar i { display: block; height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0.08); transition: transform .5s; }
-  .tile:hover .bar i, .tile:focus-visible .bar i { transform: scaleX(1); transition: transform 6s linear; }
-  .tile.empty .play span { border-style: dashed; }
-  .meta { display: flex; flex-wrap: wrap; gap: 6px 10px; }
-  .tag { font-weight: 500; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-  .tag.kind { color: var(--accent-text); font-weight: 700; }
-  .ad h3 { font-weight: 700; font-size: 17px; line-height: 1.25; letter-spacing: 0.005em; text-transform: uppercase; }
-  .ad p { margin: 0; font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.6; }
+  .slot__media video, .slot__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; z-index: 1; }
+  .slot__empty { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; text-align: center; padding: 12px; font: 600 11px var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: #fff; }
+  .slot__title { font-weight: 700; font-size: 17px; line-height: 1.25; letter-spacing: 0.005em; text-transform: uppercase; }
+  .slot__meta { margin: 0; font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.6; }
 
   .rows { border-top: 1px solid var(--line); }
   .row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 12px 40px; padding-block: 34px; border-bottom: 1px solid var(--line); transition: background .25s, padding .25s; }
@@ -169,10 +153,8 @@
   }
   @media (max-width: 520px) {
     .belt { --card: 190px; --gap: 14px; }
-    .ad h3 { font-size: 14px; }
-    .ad p { font-size: 13px; }
-    .tile .play span { width: 46px; height: 46px; }
-    .tile .len { display: none; }
+    .slot__title { font-size: 14px; }
+    .slot__meta { font-size: 13px; }
     .stat span { font-size: 10px; letter-spacing: 0.1em; }
     .stat { padding-right: 10px; }
     .stat + .stat { padding-left: 10px; }
@@ -238,10 +220,79 @@
   <div class="in-w">
     <section class="s" id="work" aria-labelledby="work-h">
       <div class="head">
-        <div class="t rv"><div class="label">Selected work</div><h2 id="work-h">Ads in orbit</h2></div>
+        <div class="t rv"><div class="label">Selected work</div><h2 id="work-h">Sample ads</h2></div>
         <div class="filters rv" role="group" aria-label="Filter work" id="filters"></div>
       </div>
-      <div class="belt" id="belt"><div class="belt-track" id="beltTrack"></div></div>
+      <div class="belt" id="belt"><div class="belt-track" id="beltTrack">
+        <!--
+          HOW TO FILL A SLOT
+          1. Put your video file next to this page, e.g. clips/my-ad.mp4 (MP4, H.264).
+          2. Replace the <span class="slot__empty"> line with:
+               <video src="clips/my-ad.mp4" muted loop playsinline preload="metadata"></video>
+             The video previews on hover. Or embed YouTube / Vimeo instead:
+               <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Ad title" allowfullscreen loading="lazy"></iframe>
+          3. Edit the title and the line under it.
+          data-k sets which filter button the slot belongs to: real, 3d, film, photo or other.
+          Shapes: slot--vertical (9:16), slot--square (1:1), slot--wide (16:9).
+          To add more slots, copy a whole <article class="slot ..."> block. To remove one, delete its block.
+        -->
+        <article class="slot slot--vertical" data-k="real">
+          <div class="slot__media">
+            <video src="assets/Pixar Style.mp4" muted loop playsinline preload="metadata"></video>
+          </div>
+          <h3 class="slot__title">UGC avatar hook test</h3>
+          <p class="slot__meta">Realistic AI, TikTok, 0:45</p>
+        </article>
+        <article class="slot slot--vertical" data-k="3d">
+          <div class="slot__media">
+             <iframe src="https://youtube.com/shorts/f3l3PG6eIlc?feature=share" title="Ad title" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <h3 class="slot__title">Pixar-style story ad</h3>
+          <p class="slot__meta">3D animated, Instagram, 1:20</p>
+        </article>
+        <article class="slot slot--vertical" data-k="film">
+          <div class="slot__media">
+            <span class="slot__empty">Video coming soon</span>
+          </div>
+          <h3 class="slot__title">AI short film ad</h3>
+          <p class="slot__meta">AI short film, YouTube, 1:05</p>
+        </article>
+        <article class="slot slot--vertical" data-k="real">
+          <div class="slot__media">
+            <span class="slot__empty">Video coming soon</span>
+          </div>
+          <h3 class="slot__title">Testimonial-style reel</h3>
+          <p class="slot__meta">Realistic AI, Facebook, 0:38</p>
+        </article>
+        <article class="slot slot--vertical" data-k="3d">
+          <div class="slot__media">
+            <span class="slot__empty">Video coming soon</span>
+          </div>
+          <h3 class="slot__title">3D explainer ad</h3>
+          <p class="slot__meta">3D animated, TikTok, 0:52</p>
+        </article>
+        <article class="slot slot--vertical" data-k="real">
+          <div class="slot__media">
+            <span class="slot__empty">Video coming soon</span>
+          </div>
+          <h3 class="slot__title">Product demo avatar ad</h3>
+          <p class="slot__meta">Realistic AI, Instagram, 0:30</p>
+        </article>
+        <article class="slot slot--square" data-k="photo">
+          <div class="slot__media">
+            <span class="slot__empty">Video coming soon</span>
+          </div>
+          <h3 class="slot__title">Photo retouch set</h3>
+          <p class="slot__meta">Photo edit, Instagram, Photo</p>
+        </article>
+        <article class="slot slot--vertical" data-k="film">
+          <div class="slot__media">
+            <span class="slot__empty">Video coming soon</span>
+          </div>
+          <h3 class="slot__title">AI drama Short</h3>
+          <p class="slot__meta">AI short film, YouTube, 0:58</p>
+        </article>
+      </div></div>
     </section>
 
     <section class="s" id="services" aria-labelledby="svc-h">
@@ -288,55 +339,28 @@
 </main>
 
 <script>
-  /* ============================================================
-     EDIT HERE. One object per ad.
-     url:  link to the post (TikTok, Instagram Reel, YouTube Short, Facebook Reel)
-     clip: optional short looping .mp4 (e.g. "clips/hook.mp4"). Plays muted on hover.
-           Leave "" to show the animated placeholder.
-     kind: "real" (realistic AI people), "3d" (Pixar-style), "film" (AI short film), "photo", "other"
-     Remove `sample: true` once the entry is your real work.
-     ============================================================ */
-  const ADS = [
-    { kind: "real", platform: "TikTok", url: "https://youtube.com/shorts/f3l3PG6eIlc?feature=share", length: "0:45", lang: "English", title: "UGC avatar hook test", desc: "Realistic AI creator opens with a problem hook, shows the product and ends on a clear call to action.", sample: true },
-    { kind: "3d", platform: "Instagram", url: "", clip: "assets/Pixar Style.mp4", length: "1:20", lang: "English", title: "Pixar-style story ad", desc: "3D animated character story that goes from the problem to a simple fix, with a cutaway to show how it works.", sample: true },
-    { kind: "film", platform: "YouTube", url: "", clip: "", length: "1:05", lang: "English", title: "AI short film ad", desc: "Cinematic story ad across several sets with a doctor scene and a friend who shares the answer.", sample: true },
-    { kind: "real", platform: "Facebook", url: "", clip: "", length: "0:38", lang: "Filipino", title: "Testimonial-style reel", desc: "Realistic AI person tells a short before-and-after story in a casual, phone-shot look.", sample: true },
-    { kind: "3d", platform: "TikTok", url: "", clip: "", length: "0:52", lang: "English", title: "3D explainer ad", desc: "Animated explainer that flies through the body to show what the product does, day by day.", sample: true },
-    { kind: "real", platform: "Instagram", url: "", clip: "", length: "0:30", lang: "English", title: "Product demo avatar ad", desc: "Fast UGC-style product demo with captions, B-roll and three alternate hooks.", sample: true },
-    { kind: "photo", platform: "Instagram", url: "", clip: "", length: "Photo", lang: "", title: "Photo retouch set", desc: "Portrait and product edits with color grading and cleanup in Photoshop and Lightroom.", sample: true },
-    { kind: "film", platform: "YouTube", url: "", clip: "", length: "0:58", lang: "English", title: "AI drama Short", desc: "Live-action-look AI drama cut for Shorts, with a strong first-3-seconds hook.", sample: true }
-  ];
-  const KINDS = { real: "Realistic AI", "3d": "3D animated", film: "AI short film", photo: "Photo edit", other: "Other" };
   const FILTERS = [["all", "All"], ["real", "Realistic AI"], ["3d", "3D animated"], ["film", "AI short films"], ["photo", "Photo"]];
   const CORE_TOOLS = ["Claude", "Google Flow", "Premiere Pro", "Photoshop", "Lightroom", "Adobe Firefly", "Higgsfield"];
   const MODEL_TOOLS = ["Google Veo", "Nano Banana", "Kling", "Runway Gen-4", "Luma Ray", "Sora 2", "Seedance", "FLUX", "GPT Image", "Topaz"];
 
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg>';
 
-  function tile(a, i) {
-    const clip = '<span class="clip" style="--d:' + (-(i * 1.7)).toFixed(1) + 's">' + (a.clip ? '<video muted loop playsinline preload="metadata" src="' + esc(a.clip) + '"></video>' : '') + '</span>' +
-      (a.clip ? '' : '<span class="scan" style="--d:' + (-(i * 0.9)).toFixed(1) + 's"></span>');
-    const inner = clip + '<span class="plat">' + esc(a.platform) + '</span><span class="len">' + esc(a.length) + '</span><span class="play"><span>' + PLAY + '</span></span><span class="bar"><i></i></span>';
-    if (a.url) return '<a class="tile" href="' + esc(a.url) + '" target="_blank" rel="noopener" aria-label="Watch ' + esc(a.title) + ' on ' + esc(a.platform) + '">' + inner + '</a>';
-    return '<div class="tile empty" role="img" aria-label="' + esc(a.title) + ', video link not added yet">' + inner + '</div>';
-  }
-  function card(a, i) {
-    const tags = ['<span class="tag kind">' + esc(KINDS[a.kind] || KINDS.other) + '</span>'];
-    if (a.lang) tags.push('<span class="tag">' + esc(a.lang) + '</span>');
-    if (a.sample) tags.push('<span class="tag">Sample slot</span>');
-    return '<article class="ad" data-k="' + esc(a.kind) + '">' + tile(a, i) +
-      '<div class="meta">' + tags.join("") + '</div><h3>' + esc(a.title) + '</h3><p>' + esc(a.desc) + '</p></article>';
-  }
+  /* slots live in the HTML above; they are pulled out here so the belt can filter and loop them */
   const beltTrack = document.getElementById("beltTrack");
+  const SLOTS = Array.from(beltTrack.querySelectorAll(".slot"));
+  SLOTS.forEach(sl => sl.remove());
   function renderBelt(f) {
-    const list = ADS.map((a, i) => ({ a, i })).filter(o => f === "all" || o.a.kind === f);
-    const set = list.map(o => card(o.a, o.i)).join("");
+    const list = SLOTS.filter(sl => f === "all" || sl.dataset.k === f);
     const reps = Math.max(1, Math.ceil(12 / Math.max(1, list.length)));
-    const half = set.repeat(reps);
-    const clone = half.replace(/<article class="ad"/g, '<article class="ad" inert aria-hidden="true"');
-    beltTrack.innerHTML = half + clone;
+    beltTrack.replaceChildren();
+    for (let r = 0; r < reps; r++) list.forEach(sl => beltTrack.appendChild(sl.cloneNode(true)));
+    const half = beltTrack.children.length;
+    for (let i = 0; i < half; i++) {
+      const c = beltTrack.children[i].cloneNode(true);
+      c.setAttribute("inert", ""); c.setAttribute("aria-hidden", "true");
+      beltTrack.appendChild(c);
+    }
     bindClips(beltTrack);
     requestAnimationFrame(() => {
       const w = beltTrack.scrollWidth / 2;
@@ -349,7 +373,7 @@
   document.getElementById("track").innerHTML = mq + mq;
 
   function bindClips(root) {
-    root.querySelectorAll(".tile").forEach(t => {
+    root.querySelectorAll(".slot__media").forEach(t => {
       const v = t.querySelector("video"); if (!v) return;
       const go = () => { try { v.play().catch(() => {}); } catch (e) {} };
       const stop = () => { v.pause(); };
@@ -359,7 +383,7 @@
   }
   renderBelt("all");
 
-  const present = new Set(ADS.map(a => a.kind));
+  const present = new Set(SLOTS.map(sl => sl.dataset.k));
   const bar = document.getElementById("filters");
   bar.innerHTML = FILTERS.filter(f => f[0] === "all" || present.has(f[0]))
     .map(f => '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (f[0] === "all") + '">' + f[1] + '</button>').join("");
