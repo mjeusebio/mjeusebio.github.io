@@ -141,10 +141,41 @@
   .contact { min-height: 80svh; display: grid; align-content: center; gap: 36px; }
   .contact h2 { font-weight: 800; font-size: clamp(40px, 9vw, 128px); line-height: 0.95; letter-spacing: -0.02em; }
   .contact h2 em { font-style: normal; color: var(--accent-text); }
-  .crows { display: grid; gap: 14px; max-width: 640px; }
+  .cta { margin: 0; font-weight: 600; font-size: clamp(18px, 2.4vw, 28px); line-height: 1.3; max-width: 30ch; text-wrap: balance; }
+  .crows { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+  .btn--email { text-transform: none; letter-spacing: 0.04em; font-size: 14px; overflow-wrap: anywhere; }
   .crow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
   .crow .v { font-weight: 600; font-size: clamp(18px, 2.4vw, 28px); user-select: all; overflow-wrap: anywhere; min-width: 0; }
   .crow .btn { padding: 11px 16px; }
+  .feeds { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .feed { border: 1px solid var(--line); background: var(--bg2); padding: 28px 26px; min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; transition: border-color .25s, transform .3s; }
+  .feed:hover { border-color: var(--accent); transform: translateY(-4px); }
+  .feed.hl { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--bg2)); }
+  .feed h3 { font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; margin-top: 10px; }
+  .feed p { margin: 0; color: var(--muted); font-weight: 300; font-size: 15px; max-width: 34ch; }
+  .tagl { font-weight: 700; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-text); }
+
+  .wf { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+  .wfc { border: 1px solid var(--line); background: var(--bg2); padding: 32px 28px; min-width: 0; }
+  .wfc.hl { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--bg2)); }
+  .wfc h3 { font-weight: 700; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.05; text-transform: uppercase; letter-spacing: 0.01em; margin: 10px 0 22px; }
+  .wfc ol { list-style: none; margin: 0; padding: 0; counter-reset: w; }
+  .wfc li { counter-increment: w; position: relative; padding: 14px 0 14px 44px; border-top: 1px solid var(--line); }
+  .wfc li::before { content: "0" counter(w); position: absolute; left: 0; top: 17px; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: var(--accent-text); }
+  .wfc li b { display: block; font-weight: 600; font-size: 16px; }
+  .wfc li span { display: block; color: var(--muted); font-weight: 300; font-size: 14px; margin-top: 2px; }
+  .wfc li i { display: inline-block; font-style: normal; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--line); padding: 3px 9px; margin-top: 8px; }
+
+  .mytool { border: 1px solid var(--line); padding: clamp(28px, 5vw, 56px); background-color: var(--bg2); background-image: radial-gradient(circle, var(--line) 1.4px, transparent 1.6px); background-size: 22px 22px; }
+  .mytool h2 { margin: 12px 0 14px; max-width: 18ch; }
+  .mytool .lead { color: var(--muted); font-weight: 300; max-width: 56ch; font-size: clamp(16px, 1.7vw, 19px); margin: 0 0 32px; }
+  .feat { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .feat div { background: color-mix(in srgb, var(--bg) 80%, transparent); border: 1px solid var(--line); padding: 24px; }
+  .feat h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 8px; }
+  .feat p { margin: 0; color: var(--muted); font-weight: 300; font-size: 15px; }
+  .mytool .one { margin: 28px 0 0; font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .mytool .one b { color: var(--accent-text); }
+
   footer { border-top: 1px solid var(--line); padding-block: 26px calc(30px + 8px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; color: var(--muted); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; position: relative; z-index: 1; background: color-mix(in srgb, var(--bg) 80%, transparent); }
 
   .rv { transform: translateY(32px); transition: transform .9s cubic-bezier(.2,.7,.2,1); }
@@ -339,8 +370,20 @@
         <div class="row"><h3>Realistic AI short films</h3><p>Live-action-look story ads built from several sets and scenes, edited like a real film.</p></div>
         <div class="row"><h3>Multimedia editing</h3><p>Video editing in Premiere Pro plus photo retouching, color grading and product or portrait cleanup in Photoshop and Lightroom.</p></div>
       </div>
+    </section>
 
-      <div class="head" style="margin-top:clamp(72px,10vw,130px)"><div class="t rv"><div class="label">How I work</div><h2>Hook to delivery</h2></div></div>
+    <section class="s" id="feeds" aria-labelledby="feeds-h">
+      <div class="head"><div class="t rv"><div class="label">Formats</div><h2 id="feeds-h">Made for short-form feeds</h2></div></div>
+      <div class="feeds">
+        <div class="feed hl rv"><div><span class="tagl">UGC</span><h3>AI avatar ads</h3></div><p>Realistic AI presenters with a hook in the first three seconds, a clear demo and a call to action.</p></div>
+        <div class="feed rv"><div><span class="tagl">Animation</span><h3>Pixar-style 3D</h3></div><p>Animated characters and story-led ads that keep people watching to the end.</p></div>
+        <div class="feed rv"><div><span class="tagl">Platforms</span><h3>Every feed</h3></div><p>Cut and exported for TikTok, Instagram Reels, Facebook Reels and YouTube Shorts.</p></div>
+        <div class="feed rv"><div><span class="tagl">Stills</span><h3>Photo editing</h3></div><p>Retouching and color grading for product and portrait images in Photoshop and Lightroom.</p></div>
+      </div>
+    </section>
+
+    <section class="s" id="how" aria-labelledby="how-h">
+      <div class="head"><div class="t rv"><div class="label">How I work</div><h2 id="how-h">Hook to delivery</h2></div></div>
       <div class="steps" id="steps">
         <div class="step rv" style="--sd:0s"><span class="n"></span><h3>Hook and script</h3><p>I write or sharpen the first 3 seconds and the story around it.</p></div>
         <div class="step rv" style="--sd:.15s"><span class="n"></span><h3>Generate shots</h3><p>Characters, scenes and motion made with image and video models, kept consistent across shots.</p></div>
@@ -358,12 +401,56 @@
       <p class="note rv">Higgsfield and Adobe Firefly both let me switch between several video and image models in one workspace, so I pick the model that suits each shot.</p>
     </section>
 
+    <section class="s" id="mytool" aria-labelledby="mt-h">
+      <div class="mytool rv">
+        <span class="tagl">In-house tool</span>
+        <h2 id="mt-h">A tool I built to ship ads faster</h2>
+        <p class="lead">I made a custom tool for my own workflow, so a full ad can be set up from one prompt instead of building it one scene at a time.</p>
+        <div class="feat">
+          <div><h3>Scene planning</h3><p>Lay out and generate every scene of an ad together.</p></div>
+          <div><h3>Avatar cast</h3><p>Use several presenters or characters in the same ad.</p></div>
+          <div><h3>Swappable settings</h3><p>Change the background from scene to scene without restarting.</p></div>
+        </div>
+        <p class="one"><b>//</b> One prompt, one ad</p>
+      </div>
+    </section>
+
+    <section class="s" id="workflow" aria-labelledby="wf-h">
+      <div class="head"><div class="t rv"><div class="label">Workflow</div><h2 id="wf-h">How each ad type gets made</h2></div></div>
+      <div class="wf">
+        <div class="wfc hl rv"><span class="tagl">UGC</span><h3>AI avatar ads</h3><ol>
+          <li><b>Brief and opening hook</b><span>Product, audience and a hook for the first three seconds.</span><i>Claude</i></li>
+          <li><b>Script</b><span>Written to the brief, ending on a clear call to action.</span><i>Claude</i></li>
+          <li><b>Presenter and voiceover</b><span>A realistic AI presenter with lip-sync and voice.</span><i>Higgsfield</i></li>
+          <li><b>Product B-roll</b><span>Demo clips that back up what the presenter says.</span><i>Google Flow</i></li>
+          <li><b>Final cut</b><span>Cuts, captions, sound and the CTA, framed in 9:16.</span><i>Premiere Pro</i></li>
+        </ol></div>
+        <div class="wfc rv"><span class="tagl">Animation</span><h3>Pixar-style story ads</h3><ol>
+          <li><b>Story and character brief</b><span>The problem and the product reveal, told in a few beats.</span><i>Claude</i></li>
+          <li><b>Look and scene prompts</b><span>One consistent 3D style carried across every shot.</span><i>Adobe Firefly</i></li>
+          <li><b>Animate the shots</b><span>Generate several takes of each and keep the strongest.</span><i>Google Flow / Higgsfield</i></li>
+          <li><b>Voice, sound and music</b><span>Voiceover and a soundtrack that fits the mood.</span><i>Premiere Pro</i></li>
+          <li><b>Color and export</b><span>Pacing, color polish and the final render.</span><i>Premiere Pro</i></li>
+        </ol></div>
+        <div class="wfc rv"><span class="tagl">Realistic AI</span><h3>Drama and testimonial</h3><ol>
+          <li><b>Concept and hook</b><span>A story angle that earns the first second.</span><i>Claude</i></li>
+          <li><b>Character and shot prompts</b><span>A fixed face, outfit and setting so the person stays believable.</span><i>Adobe Firefly</i></li>
+          <li><b>Generate and select takes</b><span>Keep only the most convincing shots.</span><i>Google Flow</i></li>
+          <li><b>Cleanup and pacing</b><span>Trim, grade and match the audio.</span><i>Premiere Pro</i></li>
+          <li><b>Export for each platform</b><span>Specs for TikTok, Reels and Shorts.</span><i>Final delivery</i></li>
+        </ol></div>
+      </div>
+    </section>
+
     <section class="s contact" id="contact" aria-labelledby="contact-h">
       <div class="label rv">Contact</div>
       <h2 id="contact-h" class="rv">Ads that stop the <em>scroll.</em></h2>
+      <p class="cta rv">Got a product? Send me the brief and let&rsquo;s make ads people can&rsquo;t scroll past.</p>
       <div class="crows rv">
-        <div class="crow"><span class="v" id="email">mjeusebio08@gmail.com</span><button class="btn" type="button" data-copy="email">Copy email</button></div>
-        <div class="crow"><span class="v" id="phone">(+63) 927 308 3401</span><button class="btn" type="button" data-copy="phone">Copy number</button></div>
+        <a class="btn btn--email" href="mailto:mjeusebio08@gmail.com">mjeusebio08@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/mharve-justine-p-eusebio-3242b7279/" target="_blank" rel="noopener">LinkedIn</a>
+        <!-- Put your resume file at assets/Mharve-Eusebio-Resume.pdf, or change this link to wherever it lives. -->
+        <a class="btn" href="assets/Mharve-Eusebio-Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </div>
     </section>
   </div>
