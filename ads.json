@@ -1,6 +1,35 @@
 {
  "ads": [
   {
+   "id": "memory-book",
+   "title": "Guided memory book story ad",
+   "type": "3D animated",
+   "kind": "3d",
+   "hook": "Why don't I know yours?",
+   "about": "A Pixar style story ad for a guided memory book: a daughter realises she doesn't know her mom's story, and the book gives them a way to write it down together.",
+   "date": "2026-11-17",
+   "switch": "Hook",
+   "platform": "",
+   "variants": [
+    {
+     "key": "h2",
+     "label": "Hook 2",
+     "watch": "media/watch/memory-book__h2.mp4",
+     "prev": "media/prev/memory-book__h2.mp4",
+     "poster": "media/poster/memory-book__h2.jpg",
+     "length": 69.4
+    },
+    {
+     "key": "h3",
+     "label": "Hook 3",
+     "watch": "media/watch/memory-book__h3.mp4",
+     "prev": "media/prev/memory-book__h3.mp4",
+     "poster": "media/poster/memory-book__h3.jpg",
+     "length": 69.3
+    }
+   ]
+  },
+  {
    "id": "coffee",
    "title": "Focus supplement UGC ad",
    "type": "UGC ad",
@@ -34,6 +63,90 @@
      "prev": "media/prev/coffee__c.mp4",
      "poster": "media/poster/coffee__c.jpg",
      "length": 37.8
+    }
+   ]
+  },
+  {
+   "id": "herbalist",
+   "title": "The herbalist's metabolism talk",
+   "type": "AI UGC talking head",
+   "kind": "ugc",
+   "hook": "",
+   "about": "An AI herbalist talks through a metabolism routine at her counter, cut with b roll overlays and bold word by word captions.",
+   "date": "2026-11-16",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/herbalist__main.mp4",
+     "prev": "media/prev/herbalist__main.mp4",
+     "poster": "media/poster/herbalist__main.jpg",
+     "length": 179.6
+    }
+   ]
+  },
+  {
+   "id": "beef",
+   "title": "Real beef or cultivated?",
+   "type": "UGC ad",
+   "kind": "ugc",
+   "hook": "",
+   "about": "A shopper holds two packs of ground beef in the store aisle and reads the labels out loud, with bold captions.",
+   "date": "2026-11-16",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/beef__main.mp4",
+     "prev": "media/prev/beef__main.mp4",
+     "poster": "media/poster/beef__main.jpg",
+     "length": 42.6
+    }
+   ]
+  },
+  {
+   "id": "eyes",
+   "title": "Carrots or kale for your eyes",
+   "type": "AI UGC talking head",
+   "kind": "ugc",
+   "hook": "",
+   "about": "An AI health host compares carrots and kale for eye health and ends on a quick eye quiz.",
+   "date": "2026-11-16",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/eyes__main.mp4",
+     "prev": "media/prev/eyes__main.mp4",
+     "poster": "media/poster/eyes__main.jpg",
+     "length": 54.8
+    }
+   ]
+  },
+  {
+   "id": "eye-smoothie",
+   "title": "Eye health smoothie",
+   "type": "Recipe reel",
+   "kind": "recipe",
+   "hook": "",
+   "about": "Two presenters blend an eye health smoothie at the counter, opening on a giant eyeball hook.",
+   "date": "2026-11-16",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/eye-smoothie__main.mp4",
+     "prev": "media/prev/eye-smoothie__main.mp4",
+     "poster": "media/poster/eye-smoothie__main.jpg",
+     "length": 62.8
     }
    ]
   },
@@ -95,6 +208,48 @@
      "prev": "media/prev/eggnog__pierre.mp4",
      "poster": "media/poster/eggnog__pierre.jpg",
      "length": 36.2
+    }
+   ]
+  },
+  {
+   "id": "bitters-3d",
+   "title": "Soursop bitters story",
+   "type": "3D animated",
+   "kind": "3d",
+   "hook": "",
+   "about": "A 3D animated story ad for herbal soursop bitters, following one woman through her day.",
+   "date": "2026-11-15",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/bitters-3d__main.mp4",
+     "prev": "media/prev/bitters-3d__main.mp4",
+     "poster": "media/poster/bitters-3d__main.jpg",
+     "length": 116.8
+    }
+   ]
+  },
+  {
+   "id": "reset-3d",
+   "title": "Her day by day reset",
+   "type": "3D animated",
+   "kind": "3d",
+   "hook": "",
+   "about": "A 3D animated story ad told day by day, from comfort eating to a new routine.",
+   "date": "2026-11-15",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/reset-3d__main.mp4",
+     "prev": "media/prev/reset-3d__main.mp4",
+     "poster": "media/poster/reset-3d__main.jpg",
+     "length": 198.6
     }
    ]
   },
