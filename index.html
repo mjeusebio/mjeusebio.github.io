@@ -3,731 +3,642 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Mharve Eusebio Reel</title>
+<title>Mharve Justine Eusebio · AI video ads</title>
+<meta name="description" content="UGC avatar ads, recipe reels, Pixar style story ads and AI short films, each built around a hook for the first three seconds. Made by Mharve Justine Eusebio in Manila, working remote.">
+<meta property="og:title" content="Mharve Justine Eusebio · AI video ads">
+<meta property="og:description" content="Short form ads that stop the scroll, from the hook to the final cut.">
+<meta property="og:image" content="media/walkthrough.jpg">
+<meta name="theme-color" content="#14213D">
 <link rel="icon" type="image/png" href="images/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Boldonse&family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 <style>
   :root {
-    --bg: #211d1e;
-    --bg2: #2b2627;
-    --line: #3f3839;
-    --fg: #ffffff;
-    --muted: #bdb5b7;
-    --accent: #84e5ff;
-    --accent-text: #84e5ff;
-    --accent-ink: #211d1e;
-    --font: "Be Vietnam Pro", "Segoe UI", system-ui, sans-serif;
+    --navy: #14213D; --navy-2: #1A2A4C; --navy-3: #22355D; --cream: #F4EDE0; --coral: #FF6B5B; --coral-hi: #FF8475;
+    --line: rgba(244,237,224,.14); --line-d: rgba(20,33,61,.16);
+    --soft: rgba(244,237,224,.62); --soft-d: rgba(20,33,61,.62);
+    --display: "Boldonse", "Arial Black", sans-serif; --font: "Geist", system-ui, sans-serif; --mono: "Geist Mono", ui-monospace, monospace;
+    --out: cubic-bezier(0.23, 1, 0.32, 1); --io: cubic-bezier(0.77, 0, 0.175, 1);
     color-scheme: dark;
-  }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      --bg: #ffffff; --bg2: #f3eff0; --line: #ddd5d7; --fg: #211d1e; --muted: #5f575a; --accent-text: #00647f;
-      color-scheme: light;
-    }
-  }
-  :root[data-theme="light"] {
-    --bg: #ffffff; --bg2: #f3eff0; --line: #ddd5d7; --fg: #211d1e; --muted: #5f575a; --accent-text: #00647f;
-    color-scheme: light;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; font-weight: 400; line-height: 1.6;
-    padding-left: max(16px, env(safe-area-inset-left, 0px));
-    padding-right: max(16px, env(safe-area-inset-right, 0px));
-    overflow-x: clip;
-  }
-  img { max-width: 100%; }
-  a { color: inherit; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  #sky { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
-  main { position: relative; z-index: 1; }
-  .in-w { max-width: 1240px; margin: 0 auto; }
+  body { margin: 0; background: var(--navy); color: var(--cream); font-family: var(--font); font-size: 18px; line-height: 1.35; letter-spacing: -0.01em; overflow-x: clip; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  img, video { display: block; max-width: 100%; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--coral); outline-offset: 4px; }
+  h1, h2, h3, h4, p { margin: 0; }
+  p { text-wrap: pretty; }
 
-  .nav { position: fixed; left: 0; right: 0; top: 0; z-index: 20; padding: calc(14px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 14px max(16px, env(safe-area-inset-left, 0px));
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 92%, transparent), transparent); }
-  .brand { font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; }
-  .nav ul { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
-  .nav a.l { font-weight: 500; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; color: var(--muted); padding: 6px 0; border-bottom: 1px solid transparent; }
-  .nav a.l:hover { color: var(--fg); border-color: var(--accent); }
-  .prog { position: fixed; left: 0; top: 0; height: 2px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); z-index: 30; }
-  .dots { position: fixed; right: max(14px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); z-index: 15; display: grid; gap: 14px; }
-  .dots a { display: block; width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--fg); opacity: 0.55; transition: all .25s; }
-  .dots a.on { background: var(--accent); border-color: var(--accent); opacity: 1; transform: scale(1.3); }
+  /* type: one wide display face for every heading, Geist for reading */
+  .d { font-family: var(--display); text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.38; font-weight: 400; }
+  .d-hero { font-size: clamp(44px, 8.6vw, 132px); line-height: 1.3; letter-spacing: -0.025em; }
+  .d-xl { font-size: clamp(32px, 4.8vw, 68px); line-height: 1.4; }
+  .d-l { font-size: clamp(26px, 3.4vw, 48px); line-height: 1.45; }
+  .d-m { font-size: clamp(18px, 1.8vw, 24px); line-height: 1.5; }
+  .d-s { font-size: 15px; line-height: 1.6; }
+  .lead { font-size: 18px; line-height: 1.35; color: var(--soft); max-width: 46ch; }
+  .small { font-size: 14px; line-height: 1.4; }
+  .tiny { font-size: 12px; line-height: 1.35; letter-spacing: .02em; }
+  .mono { font-family: var(--mono); }
+  .soft { color: var(--soft); }
+  .coral { color: var(--coral); }
 
-  .label { font-weight: 500; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
-  h1, h2, h3 { margin: 0; }
-  h1 { font-weight: 800; text-transform: uppercase; line-height: 0.92; letter-spacing: -0.02em; font-size: clamp(44px, 11.5vw, 168px); text-wrap: balance; }
-  h1 .sub { display: block; color: var(--accent-text); }
-  h2 { font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; font-size: clamp(28px, 5vw, 56px); line-height: 1.02; text-wrap: balance; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding-inline: 32px; }
+  section { padding-block: 120px; scroll-margin-top: 72px; }
+  .skip { position: absolute; left: 16px; top: -64px; z-index: 100; background: var(--coral); color: var(--navy); padding: 8px 12px; }
+  .skip:focus { top: 16px; }
 
-  .btn { display: inline-flex; align-items: center; gap: 12px; font: 600 12px/1 var(--font); letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; color: var(--fg); border: 1px solid var(--fg); padding: 16px 24px; background: transparent; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
-  .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-  .btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; }
+  /* square buttons with an arrow block, like the reference */
+  .btn { display: inline-flex; align-items: stretch; border: 0; cursor: pointer; background: var(--cream); color: var(--navy); font-family: var(--display); text-transform: uppercase; font-size: 13px; letter-spacing: -0.01em;
+    transition: transform 300ms var(--out); }
+  .btn span { padding: 16px 20px; display: flex; align-items: center; }
+  .btn i { display: grid; place-items: center; width: 52px; background: var(--coral); color: var(--navy); font-size: 18px; transition: background-color 300ms var(--out); }
+  .btn i::before { transition: transform 300ms var(--out); }
+  .btn:hover i::before { transform: translateX(4px); }
+  .btn:active { transform: translateY(1px); }
+  .btn.coral { background: var(--coral); }
+  .btn.coral i { background: var(--navy); color: var(--cream); }
+  .btn.navy { background: var(--navy); color: var(--cream); }
+  .link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); text-transform: uppercase; font-size: 13px; border-bottom: 2px solid var(--coral); padding-bottom: 4px; }
+  .link:hover { color: var(--coral); }
 
-  .hero { min-height: 92svh; display: grid; align-content: end; padding-block: 120px 56px; position: relative; }
-  .hero-inner { display: grid; gap: 28px; }
-  .lede { max-width: 56ch; font-size: clamp(16px, 1.7vw, 20px); font-weight: 300; line-height: 1.65; margin: 0; }
-  .lede strong { font-weight: 600; }
-  .lede span { color: var(--muted); }
-  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); max-width: 760px; }
-  .stat { padding: 18px 18px 0 0; display: grid; gap: 4px; align-content: start; min-width: 0; }
-  .stat + .stat { padding-left: 18px; border-left: 1px solid var(--line); }
-  .stat b { font-weight: 800; font-size: clamp(34px, 5vw, 60px); line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-  .stat b.hl { color: var(--accent-text); }
-  .stat span { font-weight: 500; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  /* ticker */
+  .ticker { background: var(--coral); color: var(--navy); overflow: hidden; height: 40px; display: flex; align-items: center; position: relative; z-index: 60; }
+  .ticker-row { display: flex; gap: 56px; width: max-content; animation: tick 40s linear infinite; padding-left: 56px; }
+  .ticker span { font-family: var(--display); text-transform: uppercase; font-size: 11px; white-space: nowrap; display: inline-flex; align-items: center; gap: 56px; }
+  .ticker span::after { content: ""; width: 8px; height: 8px; background: var(--navy); }
+  @keyframes tick { to { transform: translateX(-50%); } }
 
-  .marquee { border-block: 1px solid var(--line); overflow: hidden; background: color-mix(in srgb, var(--bg) 80%, transparent); }
-  .track { display: flex; width: max-content; animation: slide 38s linear infinite; }
-  .track span { font-weight: 700; text-transform: uppercase; font-size: clamp(20px, 3vw, 34px); letter-spacing: 0.04em; padding: 18px 28px; white-space: nowrap; display: inline-flex; align-items: center; gap: 56px; }
-  .track span::after { content: ""; width: 8px; height: 8px; background: var(--accent); transform: rotate(45deg); }
-  @keyframes slide { to { transform: translateX(-50%); } }
+  /* nav */
+  .nav { position: sticky; top: 0; z-index: 50; background: rgba(20,33,61,.82); backdrop-filter: blur(16px) saturate(1.3); -webkit-backdrop-filter: blur(16px) saturate(1.3); border-bottom: 1px solid var(--line); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 72px; }
+  .brand { font-family: var(--display); font-size: 16px; text-transform: uppercase; letter-spacing: -0.02em; }
+  .brand b { color: var(--coral); font-weight: 400; }
+  .nav .links { display: flex; gap: 32px; font-size: 15px; color: var(--soft); }
+  .nav .links a { padding: 8px 0; border-bottom: 2px solid transparent; transition: color 300ms var(--out), border-color 300ms var(--out); }
+  .nav .links a:hover, .nav .links a[aria-current="true"] { color: var(--cream); border-color: var(--coral); }
+  .nav .btn span { padding: 12px 16px; } .nav .btn i { width: 44px; }
+  .burger { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: none; cursor: pointer; position: relative; }
+  .burger span { position: absolute; left: 13px; width: 18px; height: 2px; background: var(--cream); transition: transform 400ms var(--out); }
+  .burger span:first-child { transform: translateY(-4px); } .burger span:last-child { transform: translateY(4px); }
+  .menu-open .burger span:first-child { transform: rotate(45deg); } .menu-open .burger span:last-child { transform: rotate(-45deg); }
+  .panel { position: fixed; inset: 0; z-index: 40; background: var(--navy); display: grid; align-content: center; gap: 12px; padding: 112px 24px 48px;
+    opacity: 0; pointer-events: none; transition: opacity 400ms var(--out); }
+  .menu-open .panel { opacity: 1; pointer-events: auto; }
+  .panel a { opacity: 0; transform: translateY(24px); transition: opacity 400ms var(--out), transform 400ms var(--out); }
+  .menu-open .panel a { opacity: 1; transform: none; }
 
-  section.s { padding-block: clamp(72px, 12vw, 160px); position: relative; }
-  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: clamp(36px, 6vw, 72px); }
-  .head .t { display: grid; gap: 14px; }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; }
-  .filters button { font: 500 11.5px var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); background: transparent; border: 1px solid var(--line); padding: 10px 14px; cursor: pointer; }
-  .filters button:hover { color: var(--fg); border-color: var(--fg); }
-  .filters button[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+  /* hero: giant headline with a tilted strip of reels running through it */
+  .hero { position: relative; padding-block: 72px 120px; overflow: hidden; }
+  .hero .d-hero { position: relative; z-index: 2; }
+  .hero .d-hero .c { color: var(--coral); }
+  .strip { position: absolute; z-index: 1; top: -160px; bottom: -160px; left: 71%; width: 230px; transform: rotate(11deg); overflow: hidden; pointer-events: none; }
+  .strip-col { display: grid; gap: 14px; animation: drop 46s linear infinite; }
+  .strip-col div { aspect-ratio: 9/16; overflow: hidden; background: var(--navy-2); }
+  .strip-col img, .strip-col video { width: 100%; height: 100%; object-fit: cover; }
+  @keyframes drop { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+  .hero-foot { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 520px) auto; gap: 32px 64px; align-items: end; margin-top: 56px; }
+  .hero-foot .acts { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+  .facts { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 48px; margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .facts b { display: block; font-family: var(--display); font-size: 32px; line-height: 1.4; }
 
-  .belt { padding-bottom: 24px; }
-  .belt-track { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 56px 32px; }
-  .slot { display: flex; flex-direction: column; flex: 0 0 auto; width: min(100%, 300px); min-width: 0; background: var(--bg2); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
-  .slot__media { position: relative; display: block; aspect-ratio: 9 / 16; width: 100%; overflow: hidden; background: linear-gradient(165deg, #2d2829, #211d1e); isolation: isolate; }
-  .slot__media::before, .slot__media::after { content: ""; position: absolute; width: 130%; aspect-ratio: 1; border-radius: 50%; filter: blur(34px); animation: drift 9s ease-in-out infinite alternate; z-index: 0; }
-  .slot__media::before { left: -40%; top: -10%; background: radial-gradient(circle, rgba(132,229,255,.55), transparent 65%); }
-  .slot__media::after { right: -50%; bottom: -25%; background: radial-gradient(circle, rgba(255,255,255,.22), transparent 65%); animation-duration: 12s; animation-direction: alternate-reverse; }
-  @keyframes drift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(22%, 18%, 0) scale(1.25); } }
-  .slot__media video, .slot__media iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; z-index: 1; }
-  .slot__empty { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; text-align: center; padding: 12px; font: 600 11px var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: #fff; }
-  .slot__info { padding: 18px 20px 22px; display: grid; gap: 6px; }
-  .slot__kind { font-weight: 700; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-text); }
-  .slot__title { font-weight: 700; font-size: 17px; line-height: 1.25; letter-spacing: 0.005em; text-transform: uppercase; }
-  .slot__meta { margin: 0; font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.6; }
-  .slot__chip { position: absolute; left: 14px; top: 14px; z-index: 2; font: 600 10.5px var(--font); letter-spacing: 0.16em; text-transform: uppercase; color: #f4f4f4; background: rgba(0,0,0,.6); border-radius: 99px; padding: 4px 10px; }
-  .slot__media:has(video) .slot__chip, .slot__media:has(iframe) .slot__chip { display: none; }
-  .slot__media video { cursor: pointer; }
-  .vp { position: absolute; left: 12px; bottom: 12px; z-index: 3; display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border: 0; border-radius: 50%; background: var(--accent); color: var(--accent-ink); cursor: pointer; transition: transform .2s; }
-  .vp:hover { transform: scale(1.1); }
-  .vp svg { width: 20px; height: 20px; fill: currentColor; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .vp.vp--mute { left: auto; right: 12px; }
+  /* full width cream block, the reference's blue block */
+  .block { background: var(--cream); color: var(--navy); position: relative; overflow: hidden; text-align: center; padding-block: 120px; }
+  .block::before { content: ""; position: absolute; inset: 0; opacity: .5; pointer-events: none;
+    background-image: radial-gradient(circle, rgba(20,33,61,.09) 1.6px, transparent 1.9px); background-size: 14px 14px; }
+  .block .wrap { position: relative; display: grid; justify-items: center; gap: 40px; }
+  .block .d-xl { max-width: 1100px; }
+  .block .w { opacity: .22; transition: opacity 500ms var(--out); }
+  .block .w.on { opacity: 1; }
+  .block .w.hl.on { color: var(--coral); }
 
-  /* photo gallery: square tiles, click to open the original */
+  /* section heads */
+  .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 24px 64px; align-items: end; margin-bottom: 56px; }
+  .head .lead { justify-self: end; }
+  .eyebrow { font-family: var(--mono); font-size: 13px; color: var(--coral); display: block; margin-bottom: 16px; }
+
+  /* work */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .filters button { border: 1px solid var(--line); background: none; color: var(--soft); padding: 10px 16px; cursor: pointer; font-family: var(--display); text-transform: uppercase; font-size: 11px;
+    transition: background-color 300ms var(--out), color 300ms var(--out), border-color 300ms var(--out); }
+  .filters button:hover { color: var(--cream); border-color: var(--cream); }
+  .filters button[aria-pressed="true"] { background: var(--cream); color: var(--navy); border-color: var(--cream); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 48px 24px; }
+  .card { display: grid; gap: 16px; align-content: start; transition: opacity 500ms var(--out), transform 500ms var(--out); }
+  .card.enter { opacity: 0; transform: translateY(32px); }
+  .media { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--navy-2); cursor: pointer; border: 0; padding: 0; width: 100%; }
+  .media img, .media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 300ms var(--out), transform 700ms var(--out); }
+  .media video { opacity: 0; }
+  .media.playing video { opacity: 1; }
+  .card:hover .media img, .card:hover .media video { transform: scale(1.04); }
+  .media .len { position: absolute; z-index: 2; right: 0; top: 0; padding: 6px 10px; background: var(--navy); color: var(--cream); }
+  .media .watch { position: absolute; z-index: 2; left: 0; bottom: 0; display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--coral); color: var(--navy);
+    font-family: var(--display); text-transform: uppercase; font-size: 11px; transform: translateY(100%); transition: transform 400ms var(--out); }
+  .card:hover .media .watch, .media:focus-visible .watch { transform: none; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span { border: 1px solid var(--line); padding: 4px 8px; font-size: 12px; color: var(--soft); }
+  .vars { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .faces { display: flex; gap: 4px; }
+  .faces button { width: 34px; height: 34px; padding: 0; border: 2px solid transparent; background: var(--navy-2); cursor: pointer; overflow: hidden; transition: border-color 300ms var(--out), transform 300ms var(--out); }
+  .faces button img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; transform: scale(1.9); transform-origin: 50% 18%; }
+  .faces button:hover { transform: translateY(-3px); }
+  .faces button[aria-pressed="true"] { border-color: var(--coral); }
+  .hooks { display: flex; gap: 4px; }
+  .hooks button { border: 1px solid var(--line); background: none; padding: 6px 10px; cursor: pointer; color: var(--soft); font-size: 12px; transition: background-color 300ms var(--out), color 300ms var(--out); }
+  .hooks button[aria-pressed="true"] { background: var(--coral); border-color: var(--coral); color: var(--navy); }
+  .skel { aspect-ratio: 4/5; background: var(--navy-2); animation: pulse 1.6s var(--io) infinite; }
+  @keyframes pulse { 50% { opacity: .5; } }
+  .empty { grid-column: 1 / -1; padding: 48px; border: 1px solid var(--line); text-align: center; }
+
+  /* services: numbered rows */
+  .svc { border-top: 1px solid var(--line); }
+  .svc-row { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(0, 420px); gap: 24px; align-items: center; padding-block: 36px; border-bottom: 1px solid var(--line); transition: background-color 400ms var(--out); }
+  .svc-row:hover { background: var(--navy-2); }
+  .svc-row .n { font-family: var(--mono); font-size: 13px; color: var(--coral); align-self: start; padding-top: 14px; }
+  .svc-row p { color: var(--soft); }
+
+  /* reels belt */
+  .belt { overflow: hidden; }
+  .belt + .belt { margin-top: 14px; }
+  .belt-row { display: flex; gap: 14px; width: max-content; animation: slide var(--d, 90s) linear infinite; }
+  .belt.rev .belt-row { animation-direction: reverse; }
+  .belt:hover .belt-row { animation-play-state: paused; }
+  @keyframes slide { to { transform: translateX(calc(-50% - 7px)); } }
+  .reel { position: relative; width: 190px; aspect-ratio: 9/16; overflow: hidden; background: var(--navy-2); border: 0; padding: 0; cursor: pointer; flex: 0 0 auto; text-align: left; }
+  .reel img, .reel video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .reel video { opacity: 0; transition: opacity 300ms var(--out); }
+  .reel:hover video { opacity: 1; }
+  .reel span { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 8px 10px; background: rgba(20,33,61,.86); font-size: 12px; transform: translateY(100%); transition: transform 300ms var(--out); }
+  .reel:hover span { transform: none; }
+
+  /* walkthrough */
+  .film { position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--navy-2); }
+  .film video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .film .big-play { position: absolute; left: 0; bottom: 0; z-index: 2; border: 0; padding: 0; cursor: pointer; background: none; }
+  .film.on .big-play { display: none; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); margin-top: 56px; }
+  .step { padding: 24px 24px 0 0; display: grid; gap: 10px; align-content: start; }
+  .step + .step { padding-left: 24px; border-left: 1px solid var(--line); }
+  .step .n { font-family: var(--mono); font-size: 13px; color: var(--coral); }
+  .step p { color: var(--soft); font-size: 15px; }
+
+  /* why grid (formats + teamwork) */
+  .why { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .why div { padding: 40px 32px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 14px; align-content: start; transition: background-color 400ms var(--out); }
+  .why div:hover { background: var(--navy-2); }
+  .why p { color: var(--soft); font-size: 15px; }
+
+  /* workflow columns */
+  .wf { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .wf > div { border: 1px solid var(--line); padding: 32px; display: grid; gap: 16px; align-content: start; }
+  .wf > div.hl { border-color: var(--coral); }
+  .wf ol { list-style: none; margin: 0; padding: 0; counter-reset: w; }
+  .wf li { counter-increment: w; position: relative; padding: 14px 0 14px 40px; border-top: 1px solid var(--line); display: grid; gap: 4px; }
+  .wf li::before { content: "0" counter(w); position: absolute; left: 0; top: 16px; font: 500 12px/1 var(--mono); color: var(--coral); }
+  .wf li b { font-weight: 500; font-size: 16px; }
+  .wf li span { color: var(--soft); font-size: 14px; }
+  .wf li em { font-style: normal; justify-self: start; margin-top: 4px; padding: 2px 8px; border: 1px solid var(--line); font-size: 12px; }
+
+  /* tools */
+  .tools { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .chips span { padding: 8px 12px; border: 1px solid var(--line); font-size: 14px; }
+  .chips.hl span { border-color: var(--cream); }
+  .mytool { margin-top: 72px; background: var(--cream); color: var(--navy); padding: 56px; display: grid; gap: 24px; }
+  .mytool .feat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line-d); }
+  .mytool .feat div { padding: 24px 24px 0 0; display: grid; gap: 8px; }
+  .mytool .feat div + div { padding-left: 24px; border-left: 1px solid var(--line-d); }
+  .mytool p { color: var(--soft-d); }
+
+  /* photos */
   .gal { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-  .tile { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; padding: 0; border: 1px solid var(--line); background: linear-gradient(165deg, #2d2829, #211d1e); overflow: hidden; cursor: zoom-in; isolation: isolate; }
-  .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
-  .tile__n { position: absolute; inset: 0; display: grid; place-items: center; font: 700 12px var(--font); letter-spacing: 0.2em; color: var(--muted); z-index: 0; }
-  .tile img { z-index: 1; }
-  .tile::after { content: ""; position: absolute; inset: 0; z-index: 2; background: color-mix(in srgb, #211d1e 55%, transparent); opacity: 0; transition: opacity .3s; }
-  .tile__zoom { position: absolute; left: 50%; top: 50%; z-index: 3; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); opacity: 0; transform: scale(.7); transition: opacity .3s, transform .3s; }
-  .tile__zoom svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
-  .tile:hover img, .tile:focus-visible img { transform: scale(1.07); }
-  .tile:hover::after, .tile:focus-visible::after { opacity: 1; }
-  .tile:hover .tile__zoom, .tile:focus-visible .tile__zoom { opacity: 1; transform: none; }
-  .lb { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.93); padding: 56px 16px; }
-  .lb.open { display: flex; }
-  .lb img { max-width: min(100%, 1400px); max-height: 100%; object-fit: contain; display: block; }
-  .lb button { position: absolute; display: grid; place-items: center; width: 46px; height: 46px; padding: 0; border: 1px solid #fff; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
-  .lb button:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-  .lb button svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-  .lb .lb-x { top: max(14px, env(safe-area-inset-top, 0px)); right: 14px; }
-  .lb .lb-p { left: 14px; top: 50%; margin-top: -23px; }
-  .lb .lb-n { right: 14px; top: 50%; margin-top: -23px; }
-  .lb .lb-c { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%); font: 600 11.5px var(--font); letter-spacing: 0.18em; color: #fff; }
+  .pho { position: relative; aspect-ratio: 1; overflow: hidden; border: 0; padding: 0; background: var(--navy-2); cursor: zoom-in; }
+  .pho img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--out); }
+  .pho:hover img { transform: scale(1.06); }
 
-  .rows { border-top: 1px solid var(--line); }
-  .row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 12px 40px; padding-block: 34px; border-bottom: 1px solid var(--line); transition: background .25s, padding .25s; }
-  .row:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); padding-left: 14px; }
-  .row h3 { font-weight: 700; font-size: clamp(22px, 3.2vw, 38px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; }
-  .row p { margin: 0; color: var(--muted); font-weight: 300; font-size: clamp(15px, 1.5vw, 18px); max-width: 52ch; }
+  /* faq */
+  .faq { border-top: 1px solid var(--line); max-width: 960px; }
+  details { border-bottom: 1px solid var(--line); padding: 24px 0; }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  summary::-webkit-details-marker { display: none; }
+  summary i { color: var(--coral); font-size: 22px; transition: transform 400ms var(--out); }
+  details[open] summary i { transform: rotate(45deg); }
+  details p { margin-top: 12px; color: var(--soft); max-width: 70ch; }
 
-  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; counter-reset: s; }
-  .step { display: grid; gap: 12px; align-content: start; padding-top: 22px; position: relative; counter-increment: s; }
-  .step::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--line); }
-  .step::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); transition-delay: var(--sd, 0s); }
-  .step.in::after { transform: scaleX(1); }
-  .step .n { font-weight: 800; font-size: 14px; letter-spacing: 0.16em; color: var(--accent-text); }
-  .step .n::before { content: "0" counter(s); }
-  .step h3 { font-weight: 700; font-size: 20px; text-transform: uppercase; letter-spacing: 0.02em; }
-  .step p { margin: 0; color: var(--muted); font-weight: 300; font-size: 15px; }
+  footer { border-top: 1px solid var(--line); padding-block: 40px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; color: var(--soft); font-size: 14px; }
+  footer nav { display: flex; gap: 24px; flex-wrap: wrap; }
+  footer a:hover { color: var(--cream); }
 
-  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-  .chip { font-weight: 600; font-size: 13px; letter-spacing: 0.04em; border: 1px solid var(--fg); padding: 9px 14px; }
-  .chip.soft { font-weight: 400; border-color: var(--line); color: var(--muted); }
-  .note { color: var(--muted); font-weight: 300; font-size: 14px; max-width: 60ch; margin: 22px 0 0; }
+  /* dialogs */
+  dialog { border: 0; padding: 0; background: transparent; color: var(--cream); max-width: 100vw; max-height: 100svh; }
+  dialog::backdrop { background: rgba(10,16,32,.92); }
+  .player { display: grid; grid-template-columns: auto 340px; gap: 32px; align-items: start; padding: 24px; }
+  .player video { height: min(84svh, 860px); aspect-ratio: 9/16; background: #000; }
+  .player .side { display: grid; gap: 16px; padding-top: 8px; }
+  .x { position: fixed; top: 16px; right: 16px; width: 48px; height: 48px; border: 0; background: var(--coral); color: var(--navy); display: grid; place-items: center; cursor: pointer; font-size: 22px; z-index: 3; }
+  .viewer img { max-width: min(92vw, 1400px); max-height: 88svh; object-fit: contain; }
+  .viewer .nb { position: fixed; top: 50%; width: 48px; height: 48px; margin-top: -24px; border: 0; background: var(--cream); color: var(--navy); display: grid; place-items: center; cursor: pointer; font-size: 20px; }
+  .viewer .nb.p { left: 16px; } .viewer .nb.n { right: 16px; }
 
-  .contact { min-height: 80svh; display: grid; align-content: center; gap: 36px; }
-  .contact h2 { font-weight: 800; font-size: clamp(40px, 9vw, 128px); line-height: 0.95; letter-spacing: -0.02em; }
-  .contact h2 em { font-style: normal; color: var(--accent-text); }
-  .cta { margin: 0; font-weight: 600; font-size: clamp(18px, 2.4vw, 28px); line-height: 1.3; max-width: 30ch; text-wrap: balance; }
-  .crows { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
-  .btn--email { text-transform: none; letter-spacing: 0.04em; font-size: 14px; overflow-wrap: anywhere; }
-  .crow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
-  .crow .v { font-weight: 600; font-size: clamp(18px, 2.4vw, 28px); user-select: all; overflow-wrap: anywhere; min-width: 0; }
-  .crow .btn { padding: 11px 16px; }
-  .feeds { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-  .feed { border: 1px solid var(--line); background: var(--bg2); padding: 28px 26px; min-height: 260px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; transition: border-color .25s, transform .3s; }
-  .feed:hover { border-color: var(--accent); transform: translateY(-4px); }
-  .feed.hl { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--bg2)); }
-  .feed h3 { font-weight: 700; font-size: clamp(20px, 2.4vw, 28px); line-height: 1.1; text-transform: uppercase; letter-spacing: 0.01em; margin-top: 10px; }
-  .feed p { margin: 0; color: var(--muted); font-weight: 300; font-size: 15px; max-width: 34ch; }
-  .tagl { font-weight: 700; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-text); }
+  .rv { opacity: 0; transform: translateY(32px); transition: opacity 700ms var(--out), transform 700ms var(--out); transition-delay: var(--dl, 0ms); }
+  .rv.in { opacity: 1; transform: none; }
 
-  .wf { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
-  .wfc { border: 1px solid var(--line); background: var(--bg2); padding: 32px 28px; min-width: 0; }
-  .wfc.hl { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--bg2)); }
-  .wfc h3 { font-weight: 700; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.05; text-transform: uppercase; letter-spacing: 0.01em; margin: 10px 0 22px; }
-  .wfc ol { list-style: none; margin: 0; padding: 0; counter-reset: w; }
-  .wfc li { counter-increment: w; position: relative; padding: 14px 0 14px 44px; border-top: 1px solid var(--line); }
-  .wfc li::before { content: "0" counter(w); position: absolute; left: 0; top: 17px; font-weight: 700; font-size: 12px; letter-spacing: 0.12em; color: var(--accent-text); }
-  .wfc li b { display: block; font-weight: 600; font-size: 16px; }
-  .wfc li span { display: block; color: var(--muted); font-weight: 300; font-size: 14px; margin-top: 2px; }
-  .wfc li i { display: inline-block; font-style: normal; font-weight: 600; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--line); padding: 3px 9px; margin-top: 8px; }
-
-  .mytool { border: 1px solid var(--line); padding: clamp(28px, 5vw, 56px); background-color: var(--bg2); background-image: radial-gradient(circle, var(--line) 1.4px, transparent 1.6px); background-size: 22px 22px; }
-  .mytool h2 { margin: 12px 0 14px; max-width: 18ch; }
-  .mytool .lead { color: var(--muted); font-weight: 300; max-width: 56ch; font-size: clamp(16px, 1.7vw, 19px); margin: 0 0 32px; }
-  .feat { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-  .feat div { background: color-mix(in srgb, var(--bg) 80%, transparent); border: 1px solid var(--line); padding: 24px; }
-  .feat h3 { font-weight: 700; font-size: clamp(18px, 2vw, 22px); text-transform: uppercase; letter-spacing: 0.02em; margin: 0 0 8px; }
-  .feat p { margin: 0; color: var(--muted); font-weight: 300; font-size: 15px; }
-  .mytool .one { margin: 28px 0 0; font-weight: 600; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; }
-  .mytool .one b { color: var(--accent-text); }
-
-  footer { border-top: 1px solid var(--line); padding-block: 26px calc(30px + 8px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; color: var(--muted); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; position: relative; z-index: 1; background: color-mix(in srgb, var(--bg) 80%, transparent); }
-
-  .rv { transform: translateY(32px); transition: transform .9s cubic-bezier(.2,.7,.2,1); }
-  .rv.in { transform: none; }
-
-  @media (max-width: 860px) {
-    .gal { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .lb .lb-p, .lb .lb-n { top: auto; bottom: 14px; margin-top: 0; }
-    .lb .lb-p { left: 14px; }
-    .nav ul { display: none; }
-    .dots { display: none; }
-    .steps { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
-    .row { grid-template-columns: 1fr; }
+  @media (max-width: 1000px) {
+    .head, .hero-foot { grid-template-columns: 1fr; } .head .lead { justify-self: start; }
+    .svc-row { grid-template-columns: 48px 1fr; } .svc-row p { grid-column: 2; }
+    .why, .wf { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; } .step:nth-child(3) { padding-left: 0; border-left: 0; }
+    .tools { grid-template-columns: 1fr; }
+    .player { grid-template-columns: 1fr; justify-items: center; } .player video { height: min(70svh, 720px); }
+    .strip { left: 66%; width: 180px; }
   }
-  @media (max-width: 520px) {
+  @media (max-width: 700px) {
+    .wrap { padding-inline: 16px; }
+    section, .block { padding-block: 80px; }
+    .nav .links, .nav .btn { display: none; } .burger { display: block; }
+    .strip { left: auto; right: -40px; width: 140px; opacity: .55; }
+    .why, .wf, .steps, .mytool .feat { grid-template-columns: 1fr; }
+    .step, .step + .step, .mytool .feat div, .mytool .feat div + div { padding-left: 0; border-left: 0; }
     .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-    .slot__title { font-size: 14px; }
-    .slot__meta { font-size: 13px; }
-    .stat span { font-size: 10px; letter-spacing: 0.1em; }
-    .stat { padding-right: 10px; }
-    .stat + .stat { padding-left: 10px; }
-    .steps { grid-template-columns: 1fr; }
-    .btn { padding: 14px 18px; }
+    .mytool { padding: 32px 20px; }
+    .reel { width: 140px; }
+    .facts { gap: 24px; }
+    .btn span { padding: 14px 14px; } .btn i { width: 44px; }
   }
+  @media (hover: none) { .media .watch, .reel span { transform: none; } }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .belt { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
-    .rv { transform: none; }
-    .step::after { transform: scaleX(1); }
+    *, *::before, *::after { animation: none !important; transition-property: opacity !important; }
+    .rv, .card.enter { transform: none; }
+    .block .w { opacity: 1; }
   }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<canvas id="sky" aria-hidden="true"></canvas>
-<div class="prog" id="prog"></div>
-
+<div class="ticker" aria-hidden="true"><div class="ticker-row" id="ticker"></div></div>
 <header class="nav">
-  <a class="brand" href="#top">M. Eusebio</a>
-  <ul>
-    <li><a class="l" href="#work">Work</a></li>
-    <li><a class="l" href="#services">Services</a></li>
-    <li><a class="l" href="#tools">Tools</a></li>
-    <li><a class="l" href="#contact">Contact</a></li>
-  </ul>
+  <div class="wrap">
+    <a class="brand" href="#top">MJ<b>.</b>Eusebio</a>
+    <nav class="links" aria-label="Sections"><a href="#work" data-s="work">Work</a><a href="#walkthrough" data-s="walkthrough">Walkthrough</a><a href="#services" data-s="services">Services</a><a href="#photos" data-s="photos">Photos</a><a href="#faq" data-s="faq">FAQ</a></nav>
+    <a class="btn" href="#contact"><span>Get in touch</span><i class="ph ph-arrow-right"></i></a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
 </header>
-
-<nav class="dots" id="dots" aria-label="Sections">
-  <a href="#top" data-s="top" aria-label="Intro"></a>
-  <a href="#work" data-s="work" aria-label="Work"></a>
-  <a href="#services" data-s="services" aria-label="Services"></a>
-  <a href="#tools" data-s="tools" aria-label="Tools"></a>
-  <a href="#contact" data-s="contact" aria-label="Contact"></a>
-</nav>
-
-<main>
-  <div class="in-w">
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="label" data-speed="-0.1">Video editor · Photo editor · UGC &amp; AI ads · Manila, remote</div>
-        <h1 data-speed="-0.22">Mharve Justine <span class="sub">Eusebio</span></h1>
-        <p class="lede" data-speed="-0.14">Experienced <strong>UGC and AI ads creator and editor</strong> with 2+ years of professional AI experience. I make short-form ads for brands: <strong>UGC-style avatar ads</strong> with realistic AI people, <strong>Pixar-style 3D animated story ads</strong> and <strong>cinematic AI short films</strong>. <span>Every ad opens on a hook built for the first 3 seconds, and I cut several versions of each so you can test what wins.</span></p>
-        <div class="stats" data-speed="-0.07">
-          <div class="stat"><b class="hl" id="yrs">2+</b><span>Years professional AI</span></div>
-          <div class="stat"><b>300+</b><span>Ads created</span></div>
-          <div class="stat"><b>9:16</b><span>Vertical first</span></div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
-          <a class="btn" href="#work">See the work <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn" href="#contact">Get in touch</a>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="marquee" aria-label="Tools and models">
-    <div class="track" id="track"></div>
-  </div>
-
-  <div class="in-w">
-    <section class="s" id="work" aria-labelledby="work-h">
-      <div class="head">
-        <div class="t rv"><div class="label">Selected work</div><h2 id="work-h">Sample ads</h2></div>
-        <div class="filters rv" role="group" aria-label="Filter work" id="filters"></div>
-      </div>
-      <div class="belt" id="belt"><div class="belt-track" id="beltTrack">
-        <!--
-          HOW TO FILL A SLOT
-          1. Put your video file next to this page, e.g. clips/my-ad.mp4 (MP4, H.264).
-          2. Replace the <span class="slot__empty"> line with:
-               <video src="clips/my-ad.mp4" loop playsinline preload="metadata"></video>
-             The page adds a play button and a mute button to it. Or embed YouTube / Vimeo instead:
-               <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Ad title" allowfullscreen loading="lazy"></iframe>
-          3. Edit the platform chip, the small label, the title and the description.
-          data-k sets which filter button the slot belongs to: real, 3d, film, photo or other.
-          All slots are 9:16.
-          To add more slots, copy a whole <article class="slot ..."> block. To remove one, delete its block.
-        -->
-        <article class="slot" data-k="real">
-          <div class="slot__media">
-            <span class="slot__chip">TikTok</span>
-             <video src="assets/Realistic Girl.mp4" loop playsinline preload="metadata"></video>
-          </div>
-          <div class="slot__info">
-            <small class="slot__kind">Realistic AI · English</small>
-            <h3 class="slot__title">UGC avatar hook test</h3>
-            <p class="slot__meta">Realistic AI creator opens with a problem hook, shows the product and ends on a clear call to action.</p>
-          </div>
-        </article>
-        <article class="slot" data-k="3d">
-          <div class="slot__media">
-            <span class="slot__chip">Instagram</span>
-            <video src="assets/Pixar Style.mp4" loop playsinline preload="metadata"></video>
-          </div>
-          <div class="slot__info">
-            <small class="slot__kind">3D animated · English</small>
-            <h3 class="slot__title">Pixar-style story ad</h3>
-            <p class="slot__meta">3D animated character story that goes from the problem to a simple fix, with a cutaway to show how it works.</p>
-          </div>
-        </article>
-        <article class="slot" data-k="film">
-          <div class="slot__media">
-            <span class="slot__chip">Tiktok</span>
-            <video src="assets/Honey Cucumber Video.mp4" loop playsinline preload="metadata"></video>
-          </div>
-          <div class="slot__info">
-            <small class="slot__kind">AI Influencer Video · English</small>
-            <h3 class="slot__title">AI Influencer demo</h3>
-            <p class="slot__meta">Realistic AI influencer shows a lifestyle demo for targeted audience, phone-shot look.</p>
-          </div>
-        </article>
-        <article class="slot" data-k="3d">
-          <div class="slot__media">
-            <span class="slot__chip">TikTok</span>
-            <video src="assets/Low Poly.mp4" loop playsinline preload="metadata"></video>
-          </div>
-          <div class="slot__info">
-            <small class="slot__kind">3D animated · English</small>
-            <h3 class="slot__title">3D explainer ad</h3>
-            <p class="slot__meta">Animated explainer that break down complex and interesting ideas for targeted audience, day by day.</p>
-          </div>
-        </article>
-        <article class="slot" data-k="real">
-          <div class="slot__media">
-            <span class="slot__chip">Instagram</span>
-            <video src="assets/Beverage.mp4" loop playsinline preload="metadata"></video>
-          </div>
-          <div class="slot__info">
-            <small class="slot__kind">Product Advertisement</small>
-            <h3 class="slot__title">Product Ad</h3>
-            <p class="slot__meta">Dynamic UGC-style product commercial with editing, and B-rolls.</p>
-          </div>
-        </article>
-        <article class="slot" data-k="film">
-          <div class="slot__media">
-            <span class="slot__chip">YouTube</span>
-             <video src="assets/Drama.mp4" loop playsinline preload="metadata"></video>
-          </div>
-          <div class="slot__info">
-            <small class="slot__kind">AI short film · English</small>
-            <h3 class="slot__title">AI drama Short</h3>
-            <p class="slot__meta">Live-action-look AI drama cut for Shorts, with a strong first-3-seconds hook.</p>
-          </div>
-        </article>
-      </div></div>
-    </section>
-
-    <section class="s" id="gallery" aria-labelledby="gal-h">
-      <div class="head"><div class="t rv"><div class="label">Photo portfolio</div><h2 id="gal-h">Photo edits</h2></div></div>
-      <!--
-        HOW TO ADD PHOTOS TO THE GALLERY
-        1. Put your photos in a folder next to this page, e.g. images/photos/photo-01.jpg ... photo-12.jpg
-           (JPG, PNG or WebP). They can be any shape: the tile crops to a square, the click shows the full original.
-        2. Each tile below points to one photo. To swap a photo, change the file name in BOTH
-           data-full="..." and src="..." of that tile, and update the aria-label / alt text.
-           Tip: for faster loading, make a small copy for src (e.g. images/photos/thumbs/photo-01.jpg)
-           and keep data-full pointing at the big original.
-        3. TO ADD ANOTHER ROW: copy any 4 whole <button class="tile"> blocks (4 tiles = 1 row on desktop),
-           paste them right after the last tile, and change the numbers and file names.
-           The grid, the click-to-open viewer and the prev/next arrows pick them up automatically.
-           (Tablet shows 3 per row and phones show 2 per row; that is handled for you.)
-        4. To remove a photo, delete its whole <button class="tile"> block.
-      -->
-      <div class="gal rv" id="gal">
-        <button class="tile" type="button" data-full="images/photos/photo-01.jpg" aria-label="Open photo 1"><span class="tile__n">01</span><img src="images/photos/photo-01.jpg" alt="Photo 1" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-02.jpg" aria-label="Open photo 2"><span class="tile__n">02</span><img src="images/photos/photo-02.jpg" alt="Photo 2" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-03.jpg" aria-label="Open photo 3"><span class="tile__n">03</span><img src="images/photos/photo-03.jpg" alt="Photo 3" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-04.jpg" aria-label="Open photo 4"><span class="tile__n">04</span><img src="images/photos/photo-04.jpg" alt="Photo 4" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-05.jpg" aria-label="Open photo 5"><span class="tile__n">05</span><img src="images/photos/photo-05.jpg" alt="Photo 5" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-06.jpg" aria-label="Open photo 6"><span class="tile__n">06</span><img src="images/photos/photo-06.jpg" alt="Photo 6" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-07.jpg" aria-label="Open photo 7"><span class="tile__n">07</span><img src="images/photos/photo-07.jpg" alt="Photo 7" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-08.jpg" aria-label="Open photo 8"><span class="tile__n">08</span><img src="images/photos/photo-08.jpg" alt="Photo 8" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-09.jpg" aria-label="Open photo 9"><span class="tile__n">09</span><img src="images/photos/photo-09.jpg" alt="Photo 9" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-10.jpg" aria-label="Open photo 10"><span class="tile__n">10</span><img src="images/photos/photo-10.jpg" alt="Photo 10" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-11.jpg" aria-label="Open photo 11"><span class="tile__n">11</span><img src="images/photos/photo-11.jpg" alt="Photo 11" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <button class="tile" type="button" data-full="images/photos/photo-12.jpg" aria-label="Open photo 12"><span class="tile__n">12</span><img src="images/photos/photo-12.jpg" alt="Photo 12" loading="lazy" onerror="this.style.display='none'"><span class="tile__zoom"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span></button>
-      </div>
-    </section>
-
-    <section class="s" id="services" aria-labelledby="svc-h">
-      <div class="head"><div class="t rv"><div class="label">What I make</div><h2 id="svc-h">Ways I can help</h2></div></div>
-      <div class="rows rv">
-        <div class="row"><h3>UGC AI avatar ads</h3><p>Realistic AI creators that talk to camera, with hook variations, captions, B-roll and a clear call to action.</p></div>
-        <div class="row"><h3>3D animated story ads</h3><p>Pixar-style characters and organ cutaways that tell a problem-to-solution story in one video.</p></div>
-        <div class="row"><h3>Realistic AI short films</h3><p>Live-action-look story ads built from several sets and scenes, edited like a real film.</p></div>
-        <div class="row"><h3>Multimedia editing</h3><p>Video editing in Premiere Pro plus photo retouching, color grading and product or portrait cleanup in Photoshop and Lightroom.</p></div>
-      </div>
-    </section>
-
-    <section class="s" id="feeds" aria-labelledby="feeds-h">
-      <div class="head"><div class="t rv"><div class="label">Formats</div><h2 id="feeds-h">Made for short-form feeds</h2></div></div>
-      <div class="feeds">
-        <div class="feed hl rv"><div><span class="tagl">UGC</span><h3>AI avatar ads</h3></div><p>Realistic AI presenters with a hook in the first three seconds, a clear demo and a call to action.</p></div>
-        <div class="feed rv"><div><span class="tagl">Animation</span><h3>Pixar-style 3D</h3></div><p>Animated characters and story-led ads that keep people watching to the end.</p></div>
-        <div class="feed rv"><div><span class="tagl">Platforms</span><h3>Every feed</h3></div><p>Cut and exported for TikTok, Instagram Reels, Facebook Reels and YouTube Shorts.</p></div>
-        <div class="feed rv"><div><span class="tagl">Stills</span><h3>Photo editing</h3></div><p>Retouching and color grading for product and portrait images in Photoshop and Lightroom.</p></div>
-      </div>
-    </section>
-
-    <section class="s" id="how" aria-labelledby="how-h">
-      <div class="head"><div class="t rv"><div class="label">How I work</div><h2 id="how-h">Hook to delivery</h2></div></div>
-      <div class="steps" id="steps">
-        <div class="step rv" style="--sd:0s"><span class="n"></span><h3>Hook and script</h3><p>I write or sharpen the first 3 seconds and the story around it.</p></div>
-        <div class="step rv" style="--sd:.15s"><span class="n"></span><h3>Generate shots</h3><p>Characters, scenes and motion made with image and video models, kept consistent across shots.</p></div>
-        <div class="step rv" style="--sd:.3s"><span class="n"></span><h3>Edit in Premiere</h3><p>Pacing, captions, sound and color, cut to 9:16.</p></div>
-        <div class="step rv" style="--sd:.45s"><span class="n"></span><h3>Deliver variations</h3><p>Several hooks and lengths of the same ad, ready to test.</p></div>
-      </div>
-    </section>
-
-    <section class="s" id="tools" aria-labelledby="tools-h">
-      <div class="head"><div class="t rv"><div class="label">Toolkit</div><h2 id="tools-h">Stack and models</h2></div></div>
-      <div class="tools-grid rv">
-        <div><div class="label">Core stack</div><div class="chips" id="tools-core"></div></div>
-        <div><div class="label">Partner models in Firefly and Higgsfield</div><div class="chips" id="tools-models"></div></div>
-      </div>
-      <p class="note rv">Higgsfield and Adobe Firefly both let me switch between several video and image models in one workspace, so I pick the model that suits each shot.</p>
-    </section>
-
-    <section class="s" id="mytool" aria-labelledby="mt-h">
-      <div class="mytool rv">
-        <span class="tagl">In-house tool</span>
-        <h2 id="mt-h">A tool I built to ship ads faster</h2>
-        <p class="lead">I made a custom tool for my own workflow, so a full ad can be set up from one prompt instead of building it one scene at a time.</p>
-        <div class="feat">
-          <div><h3>Scene planning</h3><p>Lay out and generate every scene of an ad together.</p></div>
-          <div><h3>Avatar cast</h3><p>Use several presenters or characters in the same ad.</p></div>
-          <div><h3>Swappable settings</h3><p>Change the background from scene to scene without restarting.</p></div>
-        </div>
-        <p class="one"><b>//</b> One prompt, one ad</p>
-      </div>
-    </section>
-
-    <section class="s" id="workflow" aria-labelledby="wf-h">
-      <div class="head"><div class="t rv"><div class="label">Workflow</div><h2 id="wf-h">How each ad type gets made</h2></div></div>
-      <div class="wf">
-        <div class="wfc hl rv"><span class="tagl">UGC</span><h3>AI avatar ads</h3><ol>
-          <li><b>Brief and opening hook</b><span>Product, audience and a hook for the first three seconds.</span><i>Claude</i></li>
-          <li><b>Script</b><span>Written to the brief, ending on a clear call to action.</span><i>Claude</i></li>
-          <li><b>Presenter and voiceover</b><span>A realistic AI presenter with lip-sync and voice.</span><i>Higgsfield</i></li>
-          <li><b>Product B-roll</b><span>Demo clips that back up what the presenter says.</span><i>Google Flow</i></li>
-          <li><b>Final cut</b><span>Cuts, captions, sound and the CTA, framed in 9:16.</span><i>Premiere Pro</i></li>
-        </ol></div>
-        <div class="wfc rv"><span class="tagl">Animation</span><h3>Pixar-style story ads</h3><ol>
-          <li><b>Story and character brief</b><span>The problem and the product reveal, told in a few beats.</span><i>Claude</i></li>
-          <li><b>Look and scene prompts</b><span>One consistent 3D style carried across every shot.</span><i>Adobe Firefly</i></li>
-          <li><b>Animate the shots</b><span>Generate several takes of each and keep the strongest.</span><i>Google Flow / Higgsfield</i></li>
-          <li><b>Voice, sound and music</b><span>Voiceover and a soundtrack that fits the mood.</span><i>Premiere Pro</i></li>
-          <li><b>Color and export</b><span>Pacing, color polish and the final render.</span><i>Premiere Pro</i></li>
-        </ol></div>
-        <div class="wfc rv"><span class="tagl">Raw footage</span><h3>Raw assets to edited ads</h3><ol>
-          <li><b>Review shots</b><span>Go through the raw footage and pick the strongest takes.</span></li>
-          <li><b>Plan hook, body and closer</b><span>Map the ad: a hook that stops the scroll, a body that makes the point and a closer with the call to action.</span><i>AI-assisted</i></li>
-          <li><b>Edit the video</b><span>Cut, pace, caption and add sound to build the ad.</span><i>Premiere Pro</i></li>
-          <li><b>Review</b><span>Watch the full cut and fix pacing, captions and audio.</span></li>
-          <li><b>Export</b><span>Render in any aspect ratio, with the right specs for wherever the ad will run.</span><i>Final delivery</i></li>
-        </ol></div>
-      </div>
-    </section>
-
-    <section class="s" id="automation" aria-labelledby="auto-h">
-      <div class="head"><div class="t rv"><div class="label">Beyond the edit</div><h2 id="auto-h">Automation and teamwork</h2></div></div>
-      <div class="wf">
-        <div class="wfc hl rv">
-          <span class="tagl">Automation</span>
-          <h3>Zapier, Make and n8n</h3>
-          <p class="note" style="margin:0">I connect the tools around the ad so the routine steps run on their own: briefs, files, approvals and delivery. I work with webhooks and APIs to link apps that don&rsquo;t connect out of the box.</p>
-          <div class="chips"><span class="chip">Zapier</span><span class="chip">Make</span><span class="chip">n8n</span><span class="chip">Webhooks</span><span class="chip">APIs</span></div>
-        </div>
-        <div class="wfc rv">
-          <span class="tagl">Collaboration</span>
-          <h3>Monday, Slack and Frame.io</h3>
-          <p class="note" style="margin:0">I&rsquo;m comfortable working inside a team&rsquo;s own setup: tracking tasks, sharing updates and collecting frame-by-frame feedback on cuts, so reviews stay in one place.</p>
-          <div class="chips"><span class="chip">monday.com</span><span class="chip">Slack</span><span class="chip">Frame.io</span><span class="chip soft">And other team apps</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="s contact" id="contact" aria-labelledby="contact-h">
-      <div class="label rv">Contact</div>
-      <h2 id="contact-h" class="rv">Ads that stop the <em>scroll.</em></h2>
-      <p class="cta rv">Got a brand or a product? Send me the brief and let&rsquo;s make ads people can&rsquo;t scroll past.</p>
-      <div class="crows rv">
-        <a class="btn btn--email" href="mailto:mjeusebio08@gmail.com">mjeusebio08@gmail.com</a>
-        <a class="btn" href="https://www.linkedin.com/in/mharve-justine-p-eusebio-3242b7279/" target="_blank" rel="noopener">LinkedIn</a>
-        <!-- Put your resume file at assets/Mharve-Eusebio-Resume.pdf, or change this link to wherever it lives. -->
-        <a class="btn" href="assets/Mharve-Eusebio-Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    <span>Mharve Justine Eusebio · Manila, Philippines</span>
-    <span>Remote · 2+ years professional AI experience</span>
-  </footer>
-</main>
-
-<script>
-  const FILTERS = [["all", "All"], ["real", "Realistic AI"], ["3d", "3D animated"], ["film", "AI short films"], ["photo", "Photo"]];
-  const CORE_TOOLS = ["Claude", "Google Flow", "Premiere Pro", "Photoshop", "Lightroom", "Adobe Firefly", "Higgsfield"];
-  const MODEL_TOOLS = ["Google Veo", "Nano Banana", "Kling", "Runway Gen-4", "Luma Ray", "Sora 2", "Seedance", "FLUX", "GPT Image", "Topaz"];
-
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-
-  /* slots live in the HTML above; they are pulled out here so the filter buttons can swap them */
-  const beltTrack = document.getElementById("beltTrack");
-  const SLOTS = Array.from(beltTrack.querySelectorAll(".slot"));
-  SLOTS.forEach(sl => sl.remove());
-  function renderBelt(f) {
-    beltTrack.replaceChildren();
-    SLOTS.filter(sl => f === "all" || sl.dataset.k === f).forEach(sl => beltTrack.appendChild(sl.cloneNode(true)));
-    bindClips(beltTrack);
-  }
-  document.getElementById("tools-core").innerHTML = CORE_TOOLS.map(t => '<span class="chip">' + esc(t) + '</span>').join("");
-  document.getElementById("tools-models").innerHTML = MODEL_TOOLS.map(t => '<span class="chip soft">' + esc(t) + '</span>').join("");
-  const mq = CORE_TOOLS.concat(MODEL_TOOLS).map(t => '<span>' + esc(t) + '</span>').join("");
-  document.getElementById("track").innerHTML = mq + mq;
-
-  /* round play button (bottom left) and mute toggle (bottom right) on every video. The sound choice carries over to the other videos. */
-  const pref = { muted: false };
-  const SPK = '<path d="M11 5L6 9H2v6h4l5 4V5z"/>';
-  const ICON_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4l13 8-13 8z"/></svg>';
-  const ICON_PAUSE = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
-  const ICON_ON = '<svg viewBox="0 0 24 24" aria-hidden="true">' + SPK + '<path d="M15.5 8.5a5 5 0 0 1 0 7" fill="none"/></svg>';
-  const ICON_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true">' + SPK + '<path d="M23 9l-6 6M17 9l6 6" fill="none"/></svg>';
-  function bindClips(root) {
-    root.querySelectorAll(".slot__media").forEach(t => {
-      const v = t.querySelector("video"); if (!v) return;
-      v.controls = false;
-      const vp = document.createElement("button");
-      vp.className = "vp"; vp.type = "button";
-      const mb = document.createElement("button");
-      mb.className = "vp vp--mute"; mb.type = "button";
-      t.appendChild(vp); t.appendChild(mb);
-      const syncPlay = () => {
-        vp.innerHTML = v.paused ? ICON_PLAY : ICON_PAUSE;
-        vp.setAttribute("aria-label", v.paused ? "Play" : "Pause");
-      };
-      const syncVol = () => {
-        mb.innerHTML = v.muted ? ICON_OFF : ICON_ON;
-        mb.setAttribute("aria-label", v.muted ? "Unmute" : "Mute");
-        mb.setAttribute("aria-pressed", String(v.muted));
-      };
-      const apply = () => { v.muted = pref.muted; syncVol(); };
-      const toggle = () => {
-        if (!v.paused) { v.pause(); return; }
-        apply();
-        v.play().catch(() => { pref.muted = true; apply(); v.play().catch(() => {}); });
-      };
-      vp.addEventListener("click", e => { e.stopPropagation(); toggle(); });
-      t.addEventListener("click", e => { if (!e.target.closest(".vp")) toggle(); });
-      mb.addEventListener("click", e => { e.stopPropagation(); pref.muted = !pref.muted; apply(); });
-      v.addEventListener("play", () => {
-        syncPlay();
-        root.querySelectorAll("video").forEach(o => { if (o !== v) o.pause(); });
-      });
-      v.addEventListener("pause", syncPlay);
-      apply(); syncPlay();
-    });
-  }
-  renderBelt("all");
-
-  const present = new Set(SLOTS.map(sl => sl.dataset.k));
-  const bar = document.getElementById("filters");
-  bar.innerHTML = FILTERS.filter(f => f[0] === "all" || present.has(f[0]))
-    .map(f => '<button type="button" data-f="' + f[0] + '" aria-pressed="' + (f[0] === "all") + '">' + f[1] + '</button>').join("");
-  bar.addEventListener("click", e => {
-    const b = e.target.closest("button"); if (!b) return;
-    bar.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    renderBelt(b.dataset.f);
-  });
-
-  document.querySelectorAll("[data-copy]").forEach(btn => btn.addEventListener("click", () => {
-    const src = document.getElementById(btn.dataset.copy), orig = btn.textContent;
-    const done = () => { btn.textContent = "Copied"; setTimeout(() => { btn.textContent = orig; }, 1800); };
-    const fallback = () => {
-      const r = document.createRange(); r.selectNodeContents(src);
-      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-      btn.textContent = "Press Ctrl+C"; setTimeout(() => { btn.textContent = orig; }, 2500);
-    };
-    try { navigator.clipboard.writeText(src.textContent).then(done, fallback); } catch (e) { fallback(); }
-  }));
-
-  const io = "IntersectionObserver" in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.15 }) : null;
-  document.querySelectorAll(".rv").forEach(el => io ? io.observe(el) : el.classList.add("in"));
-
-  const par = Array.from(document.querySelectorAll("[data-speed]"));
-  const prog = document.getElementById("prog");
-  const dots = Array.from(document.querySelectorAll("#dots a"));
-  const secs = ["top", "work", "services", "tools", "contact"].map(id => document.getElementById(id));
-  let ticking = false;
-  function onScroll() {
-    if (ticking) return; ticking = true;
-    requestAnimationFrame(() => {
-      ticking = false;
-      const vh = innerHeight, sy = scrollY;
-      const max = document.documentElement.scrollHeight - vh;
-      prog.style.transform = "scaleX(" + (max > 0 ? Math.min(1, sy / max) : 0) + ")";
-      if (!reduce) par.forEach(el => {
-        const r = el.parentElement.getBoundingClientRect();
-        if (r.bottom < -400 || r.top > vh + 400) return;
-        const y = ((r.top + r.height / 2) - vh / 2) * parseFloat(el.dataset.speed);
-        el.style.transform = "translate3d(0," + y.toFixed(1) + "px,0)";
-      });
-      let cur = 0; secs.forEach((s, i) => { if (s && s.getBoundingClientRect().top < vh * 0.45) cur = i; });
-      dots.forEach((d, i) => d.classList.toggle("on", i === cur));
-    });
-  }
-  addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", onScroll);
-  onScroll();
-
-  const cv = document.getElementById("sky"), ctx = cv.getContext("2d");
-  let W = 0, H = 0, DPR = 1, C = { fg: "#fff", accent: "#84e5ff" };
-  function readColors() {
-    const cs = getComputedStyle(document.documentElement);
-    C.fg = cs.getPropertyValue("--fg").trim() || "#fff";
-    const light = cs.getPropertyValue("--bg").trim().toLowerCase() === "#ffffff";
-    C.accent = light ? "#00647f" : "#84e5ff";
-  }
-  const rnd = (a, b) => a + Math.random() * (b - a);
-  const stars = Array.from({ length: 150 }, () => ({ x: Math.random(), y: Math.random(), z: rnd(0.2, 1), tw: rnd(0, 6.28) }));
-  const frames = Array.from({ length: 7 }, (_, i) => ({ x: rnd(0.05, 0.95), y: rnd(0, 1), w: rnd(34, 78), r: rnd(-0.5, 0.5), vr: rnd(-0.0004, 0.0004), vx: rnd(-6, 6), z: rnd(0.25, 0.9), a: i % 3 === 0 }));
-  function size() {
-    DPR = Math.min(devicePixelRatio || 1, 2);
-    W = innerWidth; H = innerHeight;
-    cv.width = W * DPR; cv.height = H * DPR;
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  }
-  const wrap = (v, m) => ((v % m) + m) % m;
-  function draw(t) {
-    ctx.clearRect(0, 0, W, H);
-    const sy = scrollY;
-    ctx.fillStyle = C.fg;
-    stars.forEach(s => {
-      const x = wrap(s.x * W - t * 0.004 * s.z * 12, W);
-      const y = wrap(s.y * H - sy * 0.35 * s.z, H);
-      ctx.globalAlpha = (0.25 + 0.5 * s.z) * (0.75 + 0.25 * Math.sin(t * 0.0015 + s.tw));
-      const r = 0.6 + s.z * 1.1;
-      ctx.fillRect(x, y, r, r);
-    });
-    const cx = W * 0.74, cy = H * 0.42 - sy * 0.28, R = Math.min(W, H) * 0.4;
-    ctx.lineWidth = 1; ctx.strokeStyle = C.fg;
-    ctx.globalAlpha = 0.13; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 6.283); ctx.stroke();
-    ctx.setLineDash([3, 9]); ctx.globalAlpha = 0.2; ctx.beginPath(); ctx.arc(cx, cy, R * 0.68, 0, 6.283); ctx.stroke(); ctx.setLineDash([]);
-    const ang = t * 0.00035;
-    ctx.fillStyle = C.accent; ctx.globalAlpha = 0.95;
-    ctx.beginPath(); ctx.arc(cx + Math.cos(ang) * R, cy + Math.sin(ang) * R, 4, 0, 6.283); ctx.fill();
-    ctx.globalAlpha = 0.6;
-    ctx.beginPath(); ctx.arc(cx + Math.cos(-ang * 1.6 + 2) * R * 0.68, cy + Math.sin(-ang * 1.6 + 2) * R * 0.68, 3, 0, 6.283); ctx.fill();
-    frames.forEach(f => {
-      const w = f.w, h = w * 16 / 9, m = h + 80;
-      const x = wrap(f.x * W + t * 0.001 * f.vx * 8, W + 160) - 80;
-      const y = wrap(f.y * (H + m) - sy * 0.5 * f.z, H + m) - m * 0.6;
-      ctx.save(); ctx.translate(x, y); ctx.rotate(f.r + t * f.vr);
-      ctx.globalAlpha = 0.14 + 0.3 * f.z * 0.6; ctx.strokeStyle = f.a ? C.accent : C.fg; ctx.lineWidth = 1.2;
-      ctx.beginPath(); ctx.rect(-w / 2, -h / 2, w, h); ctx.stroke();
-      ctx.fillStyle = f.a ? C.accent : C.fg; ctx.globalAlpha *= 0.9;
-      ctx.beginPath(); ctx.moveTo(-w * 0.12, -w * 0.18); ctx.lineTo(w * 0.2, 0); ctx.lineTo(-w * 0.12, w * 0.18); ctx.closePath(); ctx.fill();
-      ctx.restore();
-    });
-    ctx.globalAlpha = 1;
-  }
-  function loop(t) { draw(t); requestAnimationFrame(loop); }
-  size(); readColors();
-  addEventListener("resize", () => { size(); if (reduce) draw(0); });
-  matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => { readColors(); if (reduce) draw(0); });
-  new MutationObserver(() => { readColors(); if (reduce) draw(0); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-  if (reduce) { draw(0); addEventListener("scroll", () => draw(0), { passive: true }); } else requestAnimationFrame(loop);
-</script>
-
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lb-x" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <button class="lb-p" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <img id="lbImg" alt="">
-  <button class="lb-n" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-  <span class="lb-c" id="lbC"></span>
+<div class="panel" id="panel" aria-hidden="true">
+  <a class="d d-l" href="#work">Work</a><a class="d d-l" href="#walkthrough">Walkthrough</a><a class="d d-l" href="#services">Services</a><a class="d d-l" href="#photos">Photos</a><a class="d d-l" href="#faq">FAQ</a><a class="d d-l coral" href="#contact">Contact</a>
 </div>
 
-<script>
-  /* photo gallery viewer: reads every .tile in #gal, so added rows work with no code changes */
-  (function () {
-    const gal = document.getElementById("gal"), lb = document.getElementById("lb");
-    const img = document.getElementById("lbImg"), cnt = document.getElementById("lbC");
-    let i = 0, last = null;
-    const tiles = () => Array.from(gal.querySelectorAll(".tile"));
-    function show(n) {
-      const t = tiles(); if (!t.length) return;
-      i = (n + t.length) % t.length;
-      img.src = t[i].dataset.full;
-      img.alt = (t[i].querySelector("img") || {}).alt || "";
-      cnt.textContent = String(i + 1).padStart(2, "0") + " / " + String(t.length).padStart(2, "0");
-    }
-    function open(n) { last = document.activeElement; show(n); lb.classList.add("open"); document.body.style.overflow = "hidden"; lb.querySelector(".lb-x").focus(); }
-    function close() { lb.classList.remove("open"); document.body.style.overflow = ""; img.removeAttribute("src"); if (last) last.focus(); }
-    gal.addEventListener("click", e => { const b = e.target.closest(".tile"); if (b) open(tiles().indexOf(b)); });
-    lb.querySelector(".lb-x").addEventListener("click", close);
-    lb.querySelector(".lb-p").addEventListener("click", () => show(i - 1));
-    lb.querySelector(".lb-n").addEventListener("click", () => show(i + 1));
-    lb.addEventListener("click", e => { if (e.target === lb) close(); });
-    addEventListener("keydown", e => {
-      if (!lb.classList.contains("open")) return;
-      if (e.key === "Escape") close();
-      else if (e.key === "ArrowLeft") show(i - 1);
-      else if (e.key === "ArrowRight") show(i + 1);
-    });
-  })();
-</script>
+<main id="main">
+  <section class="hero" id="top">
+    <div class="strip" aria-hidden="true"><div class="strip-col" id="strip"></div></div>
+    <div class="wrap">
+      <h1 class="d d-hero">Ads that <span class="c">stop</span><br>the scroll</h1>
+      <div class="hero-foot">
+        <p class="lead">I make UGC avatar ads, recipe reels, Pixar style story ads and cinematic AI short films for brands. Every ad opens on a hook built for the first three seconds, and ships in several versions so you can test what wins.</p>
+        <div class="acts">
+          <a class="btn coral" href="#contact"><span>Send me your brief</span><i class="ph ph-arrow-right"></i></a>
+          <a class="link" href="#work">See the work <i class="ph ph-arrow-down"></i></a>
+        </div>
+      </div>
+      <div class="facts">
+        <div><b>300+</b><span class="small soft">Ads created</span></div>
+        <div><b>2+</b><span class="small soft">Years of professional AI work</span></div>
+        <div><b>9:16</b><span class="small soft">Vertical first</span></div>
+        <div><b>3</b><span class="small soft">Hooks to test per ad</span></div>
+      </div>
+    </div>
+  </section>
 
+  <div class="block">
+    <div class="wrap">
+      <p class="d d-xl" id="tagline">Stop guessing which hook works. Start testing three of them.</p>
+      <a class="btn coral" href="#contact"><span>Get in touch</span><i class="ph ph-arrow-right"></i></a>
+    </div>
+  </div>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">Selected work</span><h2 class="d d-xl" id="work-h">Recent ads</h2></div>
+        <p class="lead rv">Hover to watch the hook, click to watch with sound. Recipe reels switch between presenters, the UGC ad between its three hooks.</p>
+      </div>
+      <div class="filters rv" id="pills" role="group" aria-label="Filter ads"></div>
+      <div class="grid" id="grid"><div class="skel"></div><div class="skel"></div><div class="skel"></div></div>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">What I make</span><h2 class="d d-xl" id="svc-h">Ways I can help</h2></div>
+        <p class="lead rv">Five kinds of work, all built for short form feeds and cut in several versions to test.</p>
+      </div>
+      <div class="svc rv">
+        <div class="svc-row"><span class="n">01</span><h3 class="d d-l">UGC AI avatar ads</h3><p>Realistic AI creators that talk to camera, with hook variations, captions, b roll and a clear call to action.</p></div>
+        <div class="svc-row"><span class="n">02</span><h3 class="d d-l">Recipe reels</h3><p>Healthy swap recipes told at the counter, with the presenter in every cooking shot and close b roll of each pour.</p></div>
+        <div class="svc-row"><span class="n">03</span><h3 class="d d-l">3D story ads</h3><p>Pixar style characters and organ cutaways that tell a problem to solution story in one video.</p></div>
+        <div class="svc-row"><span class="n">04</span><h3 class="d d-l">AI short films</h3><p>Live action look story ads built from several sets and scenes, edited like a real film.</p></div>
+        <div class="svc-row"><span class="n">05</span><h3 class="d d-l">Editing</h3><p>Video editing in Premiere Pro plus photo retouching, color grading and product or portrait cleanup in Photoshop and Lightroom.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="more" aria-labelledby="more-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">And many more</span><h2 class="d d-xl" id="more-h">300+ ads made</h2></div>
+        <p class="lead rv">A rolling wall of every public ad on this page, presenters and hooks included. Hover to preview, click to watch with sound.</p>
+      </div>
+    </div>
+    <div class="belt"><div class="belt-row" id="belt1" style="--d:95s"></div></div>
+    <div class="belt rev"><div class="belt-row" id="belt2" style="--d:115s"></div></div>
+  </section>
+
+  <section id="walkthrough" aria-labelledby="wt-h">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">Workflow walkthrough</span><h2 class="d d-xl" id="wt-h">From brief<br>to three hooks</h2></div>
+        <p class="lead rv">A focus supplement UGC ad, followed from the angle to three finished hooks in one minute.</p>
+      </div>
+      <div class="film rv" id="film">
+        <video id="film-v" src="media/walkthrough.mp4" poster="media/walkthrough.jpg" preload="none" playsinline controls></video>
+        <button class="big-play" type="button" id="film-play" aria-label="Play the workflow walkthrough"><span class="btn coral"><span>Watch the walkthrough · 1:12</span><i class="ph-fill ph-play"></i></span></button>
+      </div>
+      <div class="steps rv">
+        <div class="step"><span class="n">01</span><h3 class="d d-m">Hook and script</h3><p>I write or sharpen the first three seconds and the story around it.</p></div>
+        <div class="step"><span class="n">02</span><h3 class="d d-m">Generate shots</h3><p>Characters, scenes and motion made with image and video models, kept consistent across shots.</p></div>
+        <div class="step"><span class="n">03</span><h3 class="d d-m">Edit and caption</h3><p>Pacing, captions, sound and color, cut to 9:16.</p></div>
+        <div class="step"><span class="n">04</span><h3 class="d d-m">Deliver variations</h3><p>Several hooks and lengths of the same ad, ready to test.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" aria-labelledby="why-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">Formats and teamwork</span><h2 class="d d-xl" id="why-h">Made for<br>short form feeds</h2></div>
+        <p class="lead rv">Cut and exported for TikTok, Instagram Reels, Facebook Reels and YouTube Shorts, and delivered inside your team's own setup.</p>
+      </div>
+      <div class="why rv">
+        <div><h3 class="d d-s">AI avatar ads</h3><p>Realistic AI presenters with a hook in the first three seconds, a clear demo and a call to action.</p></div>
+        <div><h3 class="d d-s">Pixar style 3D</h3><p>Animated characters and story led ads that keep people watching to the end.</p></div>
+        <div><h3 class="d d-s">Every feed</h3><p>Cut and exported for TikTok, Instagram Reels, Facebook Reels and YouTube Shorts.</p></div>
+        <div><h3 class="d d-s">Photo editing</h3><p>Retouching and color grading for product and portrait images in Photoshop and Lightroom.</p></div>
+        <div><h3 class="d d-s">Zapier, Make and n8n</h3><p>I connect the tools around the ad so briefs, files, approvals and delivery run on their own, with webhooks and APIs where apps don&rsquo;t connect out of the box.</p></div>
+        <div><h3 class="d d-s">Monday, Slack and Frame.io</h3><p>I work inside your team&rsquo;s setup: tracking tasks, sharing updates and collecting frame by frame feedback on cuts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow" aria-labelledby="wf-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">Workflow</span><h2 class="d d-xl" id="wf-h">How each ad<br>type gets made</h2></div>
+      </div>
+      <div class="wf">
+        <div class="hl rv"><span class="eyebrow" style="margin:0">UGC</span><h3 class="d d-m">AI avatar ads</h3><ol>
+          <li><b>Brief and opening hook</b><span>Product, audience and a hook for the first three seconds.</span><em>Claude</em></li>
+          <li><b>Script</b><span>Written to the brief, ending on a clear call to action.</span><em>Claude</em></li>
+          <li><b>Presenter and voiceover</b><span>A realistic AI presenter with lip sync and voice.</span><em>Higgsfield</em></li>
+          <li><b>Product b roll</b><span>Demo clips that back up what the presenter says.</span><em>Google Flow</em></li>
+          <li><b>Final cut</b><span>Cuts, captions, sound and the call to action, framed in 9:16.</span><em>Premiere Pro</em></li>
+        </ol></div>
+        <div class="rv" style="--dl:100ms"><span class="eyebrow" style="margin:0">Animation</span><h3 class="d d-m">Pixar style story ads</h3><ol>
+          <li><b>Story and character brief</b><span>The problem and the product reveal, told in a few beats.</span><em>Claude</em></li>
+          <li><b>Look and scene prompts</b><span>One consistent 3D style carried across every shot.</span><em>Adobe Firefly</em></li>
+          <li><b>Animate the shots</b><span>Generate several takes of each and keep the strongest.</span><em>Google Flow · Higgsfield</em></li>
+          <li><b>Voice, sound and music</b><span>Voiceover and a soundtrack that fits the mood.</span><em>Premiere Pro</em></li>
+          <li><b>Color and export</b><span>Pacing, color polish and the final render.</span><em>Premiere Pro</em></li>
+        </ol></div>
+        <div class="rv" style="--dl:200ms"><span class="eyebrow" style="margin:0">Raw footage</span><h3 class="d d-m">Raw assets to edited ads</h3><ol>
+          <li><b>Review shots</b><span>Go through the raw footage and pick the strongest takes.</span></li>
+          <li><b>Plan hook, body and closer</b><span>A hook that stops the scroll, a body that makes the point and a closer with the call to action.</span><em>AI assisted</em></li>
+          <li><b>Edit the video</b><span>Cut, pace, caption and add sound to build the ad.</span><em>Premiere Pro</em></li>
+          <li><b>Review</b><span>Watch the full cut and fix pacing, captions and audio.</span></li>
+          <li><b>Export</b><span>Render in any aspect ratio, with the right specs for wherever the ad will run.</span><em>Final delivery</em></li>
+        </ol></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" aria-labelledby="tl-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">Toolkit</span><h2 class="d d-xl" id="tl-h">Stack and models</h2></div>
+        <p class="lead rv">Higgsfield and Adobe Firefly both let me switch between several video and image models in one workspace, so I pick the model that suits each shot.</p>
+      </div>
+      <div class="tools rv">
+        <div><span class="small soft">Core stack</span><div class="chips hl" id="tools-core"></div></div>
+        <div><span class="small soft">Partner models in Firefly and Higgsfield</span><div class="chips soft" id="tools-models"></div></div>
+      </div>
+      <div class="mytool rv">
+        <span class="eyebrow" style="margin:0">In house tool</span>
+        <h3 class="d d-l">A tool I built<br>to ship ads faster</h3>
+        <p style="max-width:56ch">I made a custom tool for my own workflow, so a full ad can be set up from one prompt instead of building it one scene at a time.</p>
+        <div class="feat">
+          <div><h4 class="d d-s">Scene planning</h4><p class="small">Lay out and generate every scene of an ad together.</p></div>
+          <div><h4 class="d d-s">Avatar cast</h4><p class="small">Use several presenters or characters in the same ad.</p></div>
+          <div><h4 class="d d-s">Swappable settings</h4><p class="small">Change the background from scene to scene without restarting.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photos" aria-labelledby="ph-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div class="rv"><span class="eyebrow">Photo portfolio</span><h2 class="d d-xl" id="ph-h">Photo edits</h2></div>
+        <p class="lead rv">Retouching and color for product and portrait images. Click a photo to see it full size.</p>
+      </div>
+      <div class="gal rv" id="gal"></div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><div class="rv"><span class="eyebrow">Questions</span><h2 class="d d-xl" id="faq-h">Before you<br>send a brief</h2></div></div>
+      <div class="faq rv">
+        <details><summary class="d d-s">Which platforms do you cut for? <i class="ph ph-plus"></i></summary><p>TikTok, Instagram Reels, Facebook Reels and YouTube Shorts, all vertical 9:16. Other ratios on request.</p></details>
+        <details><summary class="d d-s">What do you need from me? <i class="ph ph-plus"></i></summary><p>Your product, who it is for and what you want people to do after watching. A script is welcome but not needed.</p></details>
+        <details><summary class="d d-s">Do I get more than one version? <i class="ph ph-plus"></i></summary><p>Yes. Each ad ships with several hooks, and recipe reels can be made with several presenters, so you can test what wins.</p></details>
+        <details><summary class="d d-s">Can you edit footage I already have? <i class="ph ph-plus"></i></summary><p>Yes. I review the raw clips, plan the hook, body and closer, then cut, caption and export the ad.</p></details>
+        <details><summary class="d d-s">Which tools do you use? <i class="ph ph-plus"></i></summary><p>Claude, Google Flow, Higgsfield, Adobe Firefly, Premiere Pro, Photoshop and Lightroom, picking the model that suits each shot.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="block" id="contact">
+    <div class="wrap">
+      <span class="eyebrow" style="margin:0">Contact</span>
+      <h2 class="d d-xl">Got a product?<br>Send me the brief.</h2>
+      <p style="max-width:52ch;color:rgba(20,33,61,.7)">Tell me what you sell, who it is for and what you want the ad to do. I&rsquo;ll reply with a hook idea and a plan for the first version.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:center">
+        <a class="btn coral" href="mailto:mjeusebio08@gmail.com"><span>mjeusebio08@gmail.com</span><i class="ph ph-arrow-right"></i></a>
+        <a class="btn navy" href="https://www.linkedin.com/in/mharve-justine-p-eusebio-3242b7279/" target="_blank" rel="noopener"><span>LinkedIn</span><i class="ph ph-arrow-up-right"></i></a>
+        <a class="btn navy" href="assets/Mharve-Eusebio-Resume.pdf" target="_blank" rel="noopener"><span>Resume</span><i class="ph ph-download-simple"></i></a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer><div class="wrap"><span>Mharve Justine Eusebio · Manila, Philippines · Remote</span><nav><a href="#top">Back to top</a><a href="#work">Work</a><a href="#contact">Contact</a></nav></div></footer>
+
+<dialog id="player" aria-label="Video player">
+  <button class="x" type="button" data-close aria-label="Close"><i class="ph ph-x"></i></button>
+  <div class="player">
+    <video id="pv" controls playsinline preload="metadata"></video>
+    <div class="side">
+      <span class="eyebrow" id="p-type" style="margin:0"></span>
+      <h3 class="d d-l" id="p-title"></h3>
+      <p class="soft" id="p-about"></p>
+      <div id="p-vars"></div>
+    </div>
+  </div>
+</dialog>
+<dialog id="viewer" class="viewer" aria-label="Photo viewer">
+  <button class="x" type="button" data-close aria-label="Close"><i class="ph ph-x"></i></button>
+  <button class="nb p" type="button" aria-label="Previous photo"><i class="ph ph-caret-left"></i></button>
+  <img id="vimg" alt="">
+  <button class="nb n" type="button" aria-label="Next photo"><i class="ph ph-caret-right"></i></button>
+</dialog>
+
+<script>
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const fmt = s => Math.floor(s / 60) + ":" + String(Math.round(s % 60)).padStart(2, "0");
+  const KINDS = [["all", "All"], ["recipe", "Recipe reels"], ["ugc", "UGC ads"], ["3d", "3D animated"], ["film", "AI short films"]];
+  const KIND_TAG = { recipe: "Recipe reel", ugc: "UGC", "3d": "3D animation", film: "Short film" };
+  const CORE = ["Claude", "Google Flow", "Premiere Pro", "Photoshop", "Lightroom", "Adobe Firefly", "Higgsfield"];
+  const MODELS = ["Google Veo", "Nano Banana", "Kling", "Runway Gen 4", "Luma Ray", "Sora 2", "Seedance", "FLUX", "GPT Image", "Topaz"];
+  document.getElementById("tools-core").innerHTML = CORE.map(t => `<span>${t}</span>`).join("");
+  document.getElementById("tools-models").innerHTML = MODELS.map(t => `<span>${t}</span>`).join("");
+  const TICK = ["New: watch one ad go from the angle to three hooks", "300+ ads created", "Taking new briefs", "UGC, recipe reels, 3D and AI short films", "Manila, working remote", "Every ad ships with several hooks"];
+  document.getElementById("ticker").innerHTML = TICK.concat(TICK).map(t => `<span>${t}</span>`).join("");
+
+  const PHOTOS = Array.from({ length: 12 }, (_, i) => `images/photos/photo-${String(i + 1).padStart(2, "0")}.jpg`);
+  document.getElementById("gal").innerHTML = PHOTOS.map((p, i) => `<button class="pho" type="button" data-i="${i}" aria-label="Open photo ${i + 1}"><img src="${p}" alt="Photo edit ${i + 1}" loading="lazy"></button>`).join("");
+
+  let ADS = [];
+  const grid = document.getElementById("grid"), pills = document.getElementById("pills"), pick = {};
+  const variant = a => a.variants.find(v => v.key === pick[a.id]) || a.variants[0];
+  function card(a, i) {
+    const v = variant(a);
+    const vars = a.variants.length < 2 ? "" : a.switch === "Presenter"
+      ? `<div class="faces">${a.variants.map(x => `<button type="button" data-k="${x.key}" aria-pressed="${x.key === v.key}" aria-label="Watch ${esc(x.label)}'s version" title="${esc(x.label)}"><img src="${x.poster}" alt=""></button>`).join("")}</div><span class="small soft who">${esc(v.label)}</span>`
+      : `<div class="hooks">${a.variants.map(x => `<button type="button" data-k="${x.key}" aria-pressed="${x.key === v.key}">${esc(x.label)}</button>`).join("")}</div>`;
+    const tags = [KIND_TAG[a.kind], a.platform, a.variants.length > 1 ? `${a.variants.length} ${a.switch === "Presenter" ? "presenters" : "hooks"}` : ""].filter(Boolean);
+    return `<article class="card enter" data-id="${a.id}" style="transition-delay:${Math.min(i, 6) * 60}ms">
+      <button class="media" type="button" aria-label="Watch ${esc(a.title)} with sound">
+        <img src="${v.poster}" alt="${esc(a.title)}" loading="lazy">
+        <video muted loop playsinline preload="none" src="${v.prev}"></video>
+        <span class="len tiny mono">${fmt(v.length)}</span>
+        <span class="watch">Watch with sound <i class="ph-fill ph-speaker-high"></i></span>
+      </button>
+      <h3 class="d d-s">${esc(a.title)}</h3>
+      <div class="tags">${tags.map(t => `<span>${esc(t)}</span>`).join("")}</div>
+      <p class="small soft">${esc(a.about)}</p>
+      ${vars ? `<div class="vars">${vars}</div>` : ""}
+    </article>`;
+  }
+  function render(f) {
+    const list = ADS.filter(a => f === "all" || a.kind === f);
+    grid.innerHTML = list.length ? list.map(card).join("") : `<div class="empty soft">No ads in this group yet. Try All.</div>`;
+    requestAnimationFrame(() => requestAnimationFrame(() => grid.querySelectorAll(".card").forEach(c => c.classList.remove("enter"))));
+    grid.querySelectorAll(".media").forEach(m => {
+      const vid = m.querySelector("video");
+      m.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") { m.classList.add("playing"); vid.currentTime = 0; vid.play().catch(() => {}); } });
+      m.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") { m.classList.remove("playing"); vid.pause(); } });
+      m.addEventListener("click", () => openPlayer(m.closest(".card").dataset.id));
+    });
+  }
+  pills.addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return;
+    pills.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); render(b.dataset.f); });
+  grid.addEventListener("click", e => { const b = e.target.closest(".vars button"); if (!b) return;
+    const c = b.closest(".card"), a = ADS.find(x => x.id === c.dataset.id); pick[a.id] = b.dataset.k;
+    const v = variant(a), m = c.querySelector(".media"), img = m.querySelector("img"), vid = m.querySelector("video");
+    c.querySelectorAll(".vars button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    const who = c.querySelector(".who"); if (who) who.textContent = v.label;
+    img.style.opacity = 0; setTimeout(() => { img.src = v.poster; img.style.opacity = 1; }, 200);
+    vid.src = v.prev; m.classList.add("playing"); vid.play().catch(() => {});
+    m.querySelector(".len").textContent = fmt(v.length); });
+
+  const dlg = document.getElementById("player"), pv = document.getElementById("pv");
+  function openPlayer(id, key) {
+    const a = ADS.find(x => x.id === id); if (!a) return;
+    if (key) pick[a.id] = key;
+    const v = variant(a);
+    document.getElementById("p-type").textContent = a.type;
+    document.getElementById("p-title").textContent = a.title;
+    document.getElementById("p-about").textContent = a.about;
+    document.getElementById("p-vars").innerHTML = a.variants.length < 2 ? "" :
+      `<span class="small soft">${esc(a.switch)}</span><div class="hooks" style="flex-wrap:wrap;margin-top:8px">${a.variants.map(x => `<button type="button" data-k="${x.key}" aria-pressed="${x.key === v.key}">${esc(x.label)}</button>`).join("")}</div>`;
+    pv.poster = v.poster; pv.src = v.watch;
+    if (!dlg.open) dlg.showModal();
+    pv.play().catch(() => {});
+    dlg.dataset.id = a.id;
+  }
+  document.getElementById("p-vars").addEventListener("click", e => { const b = e.target.closest("button"); if (b) openPlayer(dlg.dataset.id, b.dataset.k); });
+  dlg.addEventListener("close", () => { pv.pause(); pv.removeAttribute("src"); pv.load(); });
+
+  function fill() {
+    const all = ADS.flatMap(a => a.variants.map(v => ({ a, v })));
+    const s = all.filter((x, i) => i % 2 === 0);
+    document.getElementById("strip").innerHTML = s.concat(s).map(({ v }, i) =>
+      `<div>${i < 6 && !reduce ? `<video muted loop playsinline autoplay preload="metadata" poster="${v.poster}" src="${v.prev}"></video>` : `<img src="${v.poster}" alt="" loading="lazy">`}</div>`).join("");
+    const reel = ({ a, v }) => `<button class="reel" type="button" data-id="${a.id}" data-k="${v.key}" aria-label="Watch ${esc(a.title)}${v.label ? ", " + esc(v.label) : ""}">
+      <img src="${v.poster}" alt="" loading="lazy"><video muted loop playsinline preload="none" src="${v.prev}"></video><span>${esc(a.title)}${v.label ? " · " + esc(v.label) : ""}</span></button>`;
+    const half = Math.ceil(all.length / 2), r1 = all.slice(0, half), r2 = all.slice(half).reverse();
+    document.getElementById("belt1").innerHTML = r1.concat(r1).map(reel).join("");
+    document.getElementById("belt2").innerHTML = r2.concat(r2).map(reel).join("");
+    document.querySelectorAll(".reel").forEach(r => {
+      const vid = r.querySelector("video");
+      r.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") vid.play().catch(() => {}); });
+      r.addEventListener("pointerleave", () => vid.pause());
+      r.addEventListener("click", () => openPlayer(r.dataset.id, r.dataset.k));
+    });
+  }
+  fetch("ads.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
+    ADS = d.ads;
+    const present = new Set(ADS.map(a => a.kind));
+    pills.innerHTML = KINDS.filter(k => k[0] === "all" || present.has(k[0])).map((k, i) => `<button type="button" data-f="${k[0]}" aria-pressed="${!i}">${k[1]}</button>`).join("");
+    render("all"); fill();
+  }).catch(() => { grid.innerHTML = `<div class="empty soft">The work list didn't load. Refresh the page to try again.</div>`; });
+
+  const film = document.getElementById("film"), fv = document.getElementById("film-v");
+  document.getElementById("film-play").addEventListener("click", () => { film.classList.add("on"); fv.play().catch(() => {}); });
+
+  const viewer = document.getElementById("viewer"), vimg = document.getElementById("vimg"); let pi = 0;
+  const showP = n => { pi = (n + PHOTOS.length) % PHOTOS.length; vimg.src = PHOTOS[pi]; vimg.alt = "Photo edit " + (pi + 1); };
+  document.getElementById("gal").addEventListener("click", e => { const b = e.target.closest(".pho"); if (!b) return; showP(+b.dataset.i); viewer.showModal(); });
+  viewer.querySelector(".p").addEventListener("click", () => showP(pi - 1));
+  viewer.querySelector(".n").addEventListener("click", () => showP(pi + 1));
+  viewer.addEventListener("keydown", e => { if (e.key === "ArrowLeft") showP(pi - 1); if (e.key === "ArrowRight") showP(pi + 1); });
+  document.querySelectorAll("dialog").forEach(d => d.addEventListener("click", e => { if (e.target === d || e.target.closest("[data-close]")) d.close(); }));
+
+  const once = (sel, fn, opt) => { if (!("IntersectionObserver" in window)) { document.querySelectorAll(sel).forEach(fn); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { fn(e.target); io.unobserve(e.target); } }), opt); document.querySelectorAll(sel).forEach(el => io.observe(el)); };
+  once(".rv", el => el.classList.add("in"), { threshold: 0.1 });
+  const navLinks = [...document.querySelectorAll(".nav .links a")];
+  if ("IntersectionObserver" in window) { const so = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) navLinks.forEach(a => a.setAttribute("aria-current", a.dataset.s === e.target.id)); }), { rootMargin: "-45% 0px -50% 0px" });
+    ["work", "walkthrough", "services", "photos", "faq"].forEach(id => so.observe(document.getElementById(id))); }
+
+  const tg = document.getElementById("tagline");
+  tg.innerHTML = tg.textContent.split(" ").map(w => `<span class="w${/^(testing|three)/.test(w) ? " hl" : ""}">${w}</span>`).join(" ");
+  const words = [...tg.querySelectorAll(".w")]; let ticking = false;
+  const light = () => { ticking = false; const line = innerHeight * 0.7; words.forEach(w => w.classList.toggle("on", w.getBoundingClientRect().top < line)); };
+  if (!reduce) { addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(light); } }, { passive: true }); light(); }
+
+  const burger = document.getElementById("burger"), panel = document.getElementById("panel");
+  const setMenu = open => { document.body.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", open); burger.setAttribute("aria-label", open ? "Close menu" : "Open menu"); panel.setAttribute("aria-hidden", !open);
+    [...panel.children].forEach((a, i) => a.style.transitionDelay = open ? Math.min(i * 60, 400) + "ms" : "0ms"); };
+  burger.addEventListener("click", () => setMenu(!document.body.classList.contains("menu-open")));
+  panel.addEventListener("click", e => { if (e.target.closest("a")) setMenu(false); });
+</script>
 </body>
 </html>

@@ -1,0 +1,310 @@
+{
+ "ads": [
+  {
+   "id": "coffee",
+   "title": "Focus supplement UGC ad",
+   "type": "UGC ad",
+   "kind": "ugc",
+   "hook": "It's 3pm, I've had three coffees, and I've read this line five times.",
+   "about": "One script body tested with three opening hooks for a focus supplement, shot like a handheld phone video with app style graphics.",
+   "date": "2026-11-16",
+   "switch": "Hook",
+   "platform": "",
+   "variants": [
+    {
+     "key": "a",
+     "label": "Hook A",
+     "watch": "media/watch/coffee__a.mp4",
+     "prev": "media/prev/coffee__a.mp4",
+     "poster": "media/poster/coffee__a.jpg",
+     "length": 37.5
+    },
+    {
+     "key": "b",
+     "label": "Hook B",
+     "watch": "media/watch/coffee__b.mp4",
+     "prev": "media/prev/coffee__b.mp4",
+     "poster": "media/poster/coffee__b.jpg",
+     "length": 35.9
+    },
+    {
+     "key": "c",
+     "label": "Hook C",
+     "watch": "media/watch/coffee__c.mp4",
+     "prev": "media/prev/coffee__c.mp4",
+     "poster": "media/poster/coffee__c.jpg",
+     "length": 37.8
+    }
+   ]
+  },
+  {
+   "id": "eggnog",
+   "title": "Eggnog, minus the sugar",
+   "type": "Recipe reel",
+   "kind": "recipe",
+   "hook": "Did you know that half a cup of eggnog has 21 grams of sugar, plus corn syrup?",
+   "about": "A healthy swap holiday reel: the hidden sugar hook, a blender eggnog made at the counter, then the finished glass to the lens.",
+   "date": "2026-11-15",
+   "switch": "Presenter",
+   "platform": "",
+   "variants": [
+    {
+     "key": "penei",
+     "label": "Penei",
+     "watch": "media/watch/eggnog__penei.mp4",
+     "prev": "media/prev/eggnog__penei.mp4",
+     "poster": "media/poster/eggnog__penei.jpg",
+     "length": 38.3
+    },
+    {
+     "key": "eddie",
+     "label": "Eddie",
+     "watch": "media/watch/eggnog__eddie.mp4",
+     "prev": "media/prev/eggnog__eddie.mp4",
+     "poster": "media/poster/eggnog__eddie.jpg",
+     "length": 37.9
+    },
+    {
+     "key": "eric",
+     "label": "Eric",
+     "watch": "media/watch/eggnog__eric.mp4",
+     "prev": "media/prev/eggnog__eric.mp4",
+     "poster": "media/poster/eggnog__eric.jpg",
+     "length": 37.6
+    },
+    {
+     "key": "kellan",
+     "label": "Kellan",
+     "watch": "media/watch/eggnog__kellan.mp4",
+     "prev": "media/prev/eggnog__kellan.mp4",
+     "poster": "media/poster/eggnog__kellan.jpg",
+     "length": 36.5
+    },
+    {
+     "key": "pete",
+     "label": "Pete",
+     "watch": "media/watch/eggnog__pete.mp4",
+     "prev": "media/prev/eggnog__pete.mp4",
+     "poster": "media/poster/eggnog__pete.jpg",
+     "length": 35.9
+    },
+    {
+     "key": "pierre",
+     "label": "Pierre",
+     "watch": "media/watch/eggnog__pierre.mp4",
+     "prev": "media/prev/eggnog__pierre.mp4",
+     "poster": "media/poster/eggnog__pierre.jpg",
+     "length": 36.2
+    }
+   ]
+  },
+  {
+   "id": "cake",
+   "title": "Beet chocolate cake",
+   "type": "Recipe reel",
+   "kind": "recipe",
+   "hook": "Boil two whole beets for one hour, skin and all.",
+   "about": "A surprise ingredient hook that pays off in a fudgy chocolate cake, with macro b roll of every pour.",
+   "date": "2026-11-13",
+   "switch": "Presenter",
+   "platform": "",
+   "variants": [
+    {
+     "key": "penei",
+     "label": "Penei",
+     "watch": "media/watch/cake__penei.mp4",
+     "prev": "media/prev/cake__penei.mp4",
+     "poster": "media/poster/cake__penei.jpg",
+     "length": 54.1
+    },
+    {
+     "key": "eddie",
+     "label": "Eddie",
+     "watch": "media/watch/cake__eddie.mp4",
+     "prev": "media/prev/cake__eddie.mp4",
+     "poster": "media/poster/cake__eddie.jpg",
+     "length": 53.8
+    },
+    {
+     "key": "eric",
+     "label": "Eric",
+     "watch": "media/watch/cake__eric.mp4",
+     "prev": "media/prev/cake__eric.mp4",
+     "poster": "media/poster/cake__eric.jpg",
+     "length": 55.5
+    },
+    {
+     "key": "kellan",
+     "label": "Kellan",
+     "watch": "media/watch/cake__kellan.mp4",
+     "prev": "media/prev/cake__kellan.mp4",
+     "poster": "media/poster/cake__kellan.jpg",
+     "length": 50.7
+    },
+    {
+     "key": "pete",
+     "label": "Pete",
+     "watch": "media/watch/cake__pete.mp4",
+     "prev": "media/prev/cake__pete.mp4",
+     "poster": "media/poster/cake__pete.jpg",
+     "length": 54.2
+    },
+    {
+     "key": "pierre",
+     "label": "Pierre",
+     "watch": "media/watch/cake__pierre.mp4",
+     "prev": "media/prev/cake__pierre.mp4",
+     "poster": "media/poster/cake__pierre.jpg",
+     "length": 52.0
+    }
+   ]
+  },
+  {
+   "id": "popovers",
+   "title": "Garlic Parmesan popovers",
+   "type": "Recipe reel",
+   "kind": "recipe",
+   "hook": "Skip the dinner rolls this Thanksgiving and make these instead.",
+   "about": "A holiday side dish reel with a bold swap hook and steam rising b roll.",
+   "date": "2026-11-09",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/popovers__main.mp4",
+     "prev": "media/prev/popovers__main.mp4",
+     "poster": "media/poster/popovers__main.jpg",
+     "length": 46.4
+    }
+   ]
+  },
+  {
+   "id": "low-poly",
+   "title": "3D explainer ad",
+   "type": "3D animated",
+   "kind": "3d",
+   "hook": "",
+   "about": "An animated explainer that breaks down complex and interesting ideas for a targeted audience, day by day.",
+   "date": "2026-09-13",
+   "switch": "",
+   "platform": "TikTok",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "assets/Low Poly.mp4",
+     "prev": "media/prev/low-poly__main.mp4",
+     "poster": "media/poster/low-poly__main.jpg",
+     "length": 37.0
+    }
+   ]
+  },
+  {
+   "id": "realistic-girl",
+   "title": "UGC avatar hook test",
+   "type": "Realistic AI",
+   "kind": "ugc",
+   "hook": "",
+   "about": "A realistic AI creator opens with a problem hook, shows the product and ends on a clear call to action.",
+   "date": "2026-09-10",
+   "switch": "",
+   "platform": "TikTok",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "assets/Realistic Girl.mp4",
+     "prev": "media/prev/realistic-girl__main.mp4",
+     "poster": "media/poster/realistic-girl__main.jpg",
+     "length": 22.5
+    }
+   ]
+  },
+  {
+   "id": "beverage",
+   "title": "Product ad",
+   "type": "Product ad",
+   "kind": "ugc",
+   "hook": "",
+   "about": "A dynamic UGC style product commercial with editing and b roll.",
+   "date": "2026-08-14",
+   "switch": "",
+   "platform": "Instagram",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "assets/Beverage.mp4",
+     "prev": "media/prev/beverage__main.mp4",
+     "poster": "media/poster/beverage__main.jpg",
+     "length": 25.7
+    }
+   ]
+  },
+  {
+   "id": "pixar",
+   "title": "Pixar style story ad",
+   "type": "3D animated",
+   "kind": "3d",
+   "hook": "",
+   "about": "A 3D animated character story that goes from the problem to a simple fix, with a cutaway to show how it works.",
+   "date": "2026-08-11",
+   "switch": "",
+   "platform": "Instagram",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "assets/Pixar Style.mp4",
+     "prev": "media/prev/pixar__main.mp4",
+     "poster": "media/poster/pixar__main.jpg",
+     "length": 41.9
+    }
+   ]
+  },
+  {
+   "id": "drama",
+   "title": "AI drama short",
+   "type": "AI short film",
+   "kind": "film",
+   "hook": "",
+   "about": "A live action look AI drama cut for Shorts, with a strong first three seconds hook.",
+   "date": "2026-07-15",
+   "switch": "",
+   "platform": "YouTube",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "assets/Drama.mp4",
+     "prev": "media/prev/drama__main.mp4",
+     "poster": "media/poster/drama__main.jpg",
+     "length": 39.0
+    }
+   ]
+  },
+  {
+   "id": "honey-cucumber",
+   "title": "AI influencer demo",
+   "type": "AI influencer video",
+   "kind": "ugc",
+   "hook": "",
+   "about": "A realistic AI influencer shows a lifestyle demo for a targeted audience, with a phone shot look.",
+   "date": "2026-07-12",
+   "switch": "",
+   "platform": "TikTok",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "assets/Honey Cucumber Video.mp4",
+     "prev": "media/prev/honey-cucumber__main.mp4",
+     "poster": "media/poster/honey-cucumber__main.jpg",
+     "length": 37.3
+    }
+   ]
+  }
+ ]
+}
