@@ -30,6 +30,51 @@
    ]
   },
   {
+   "id": "peri-founder",
+   "title": "Founder greenscreen explainer",
+   "type": "Greenscreen founder ad",
+   "kind": "ugc",
+   "hook": "This one leaf does what fat burners, shakes, and diets never could for women in PERIMENOPAUSE.",
+   "about": "A founder talks in a greenscreen corner over fast b roll and 3D medical animations, a new visual every few seconds, walking a solution aware audience from the moringa grove to the factory floor. One body tested with four hooks.",
+   "date": "2026-11-17",
+   "switch": "Hook",
+   "platform": "",
+   "variants": [
+    {
+     "key": "h1",
+     "label": "Hook 1",
+     "watch": "media/watch/peri-founder__h1.mp4",
+     "prev": "media/prev/peri-founder__h1.mp4",
+     "poster": "media/poster/peri-founder__h1.jpg",
+     "length": 232.3
+    },
+    {
+     "key": "h2",
+     "label": "Hook 2",
+     "watch": "media/watch/peri-founder__h2.mp4",
+     "prev": "media/prev/peri-founder__h2.mp4",
+     "poster": "media/poster/peri-founder__h2.jpg",
+     "length": 233.2
+    },
+    {
+     "key": "h3",
+     "label": "Hook 3",
+     "watch": "media/watch/peri-founder__h3.mp4",
+     "prev": "media/prev/peri-founder__h3.mp4",
+     "poster": "media/poster/peri-founder__h3.jpg",
+     "length": 233.4
+    },
+    {
+     "key": "h4",
+     "label": "Hook 4",
+     "watch": "media/watch/peri-founder__h4.mp4",
+     "prev": "media/prev/peri-founder__h4.mp4",
+     "poster": "media/poster/peri-founder__h4.jpg",
+     "length": 236.4
+    }
+   ]
+  },
+  {
    "id": "coffee",
    "title": "Focus supplement UGC ad",
    "type": "UGC ad",
@@ -250,6 +295,59 @@
      "prev": "media/prev/reset-3d__main.mp4",
      "poster": "media/poster/reset-3d__main.jpg",
      "length": 198.6
+    }
+   ]
+  },
+  {
+   "id": "peri-results",
+   "title": "Perimenopause 3 week results",
+   "type": "VO + b roll ad",
+   "kind": "ugc",
+   "hook": "I took this supplement for 3 weeks and lost 16 pounds. Here are my results",
+   "about": "A testimonial voice over across real looking b roll, opening on a three panel transformation, with 3D animations showing how moringa calms the joints and steadies blood sugar. One body tested with five hooks.",
+   "date": "2026-11-15",
+   "switch": "Hook",
+   "platform": "",
+   "variants": [
+    {
+     "key": "h1",
+     "label": "Hook 1",
+     "watch": "media/watch/peri-results__h1.mp4",
+     "prev": "media/prev/peri-results__h1.mp4",
+     "poster": "media/poster/peri-results__h1.jpg",
+     "length": 76.3
+    },
+    {
+     "key": "h2",
+     "label": "Hook 2",
+     "watch": "media/watch/peri-results__h2.mp4",
+     "prev": "media/prev/peri-results__h2.mp4",
+     "poster": "media/poster/peri-results__h2.jpg",
+     "length": 76.3
+    },
+    {
+     "key": "h3",
+     "label": "Hook 3",
+     "watch": "media/watch/peri-results__h3.mp4",
+     "prev": "media/prev/peri-results__h3.mp4",
+     "poster": "media/poster/peri-results__h3.jpg",
+     "length": 75.7
+    },
+    {
+     "key": "h4",
+     "label": "Hook 4",
+     "watch": "media/watch/peri-results__h4.mp4",
+     "prev": "media/prev/peri-results__h4.mp4",
+     "poster": "media/poster/peri-results__h4.jpg",
+     "length": 75.8
+    },
+    {
+     "key": "h5",
+     "label": "Hook 5",
+     "watch": "media/watch/peri-results__h5.mp4",
+     "prev": "media/prev/peri-results__h5.mp4",
+     "poster": "media/poster/peri-results__h5.jpg",
+     "length": 74.1
     }
    ]
   },
