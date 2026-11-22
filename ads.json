@@ -1,6 +1,27 @@
 {
  "ads": [
   {
+   "id": "liver-clay",
+   "title": "See-through clay man liver ad",
+   "type": "Claymation VO ad",
+   "kind": "3d",
+   "hook": "What the f*ck happens to a man's liver when he takes this for two weeks straight?",
+   "about": "A stop motion clay story for a liver supplement: a see-through clay man watches his grumpy liver turn glossy red day by day, with macro clay cell shots showing how it works inside the body.",
+   "date": "2026-11-22",
+   "switch": "",
+   "platform": "",
+   "variants": [
+    {
+     "key": "main",
+     "label": "",
+     "watch": "media/watch/liver-clay__main.mp4",
+     "prev": "media/prev/liver-clay__main.mp4",
+     "poster": "media/poster/liver-clay__main.jpg",
+     "length": 45.0
+    }
+   ]
+  },
+  {
    "id": "memory-book",
    "title": "Guided memory book story ad",
    "type": "3D animated",
