@@ -547,7 +547,7 @@
     const vars = a.variants.length < 2 ? "" : a.switch === "Presenter"
       ? `<div class="faces">${a.variants.map(x => `<button type="button" data-k="${x.key}" aria-pressed="${x.key === v.key}" aria-label="Watch ${esc(x.label)}'s version" title="${esc(x.label)}"><img src="${x.poster}" alt=""></button>`).join("")}</div><span class="small soft who">${esc(v.label)}</span>`
       : `<div class="hooks">${a.variants.map(x => `<button type="button" data-k="${x.key}" aria-pressed="${x.key === v.key}">${esc(x.label)}</button>`).join("")}</div>`;
-    const tags = [KIND_TAG[a.kind], a.platform, a.variants.length > 1 ? `${a.variants.length} ${a.switch === "Presenter" ? "presenters" : "hooks"}` : ""].filter(Boolean);
+    const tags = [KIND_TAG[a.kind], ...(a.tags || []), a.platform, a.variants.length > 1 ? `${a.variants.length} ${a.switch === "Presenter" ? "presenters" : "hooks"}` : ""].filter(Boolean);
     return `<article class="card enter" data-id="${a.id}" style="transition-delay:${Math.min(i, 6) * 60}ms">
       <button class="media" type="button" aria-label="Watch ${esc(a.title)} with sound">
         <img src="${v.poster}" alt="${esc(a.title)}" loading="lazy">
