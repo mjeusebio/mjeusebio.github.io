@@ -618,7 +618,7 @@
       r.addEventListener("click", () => openPlayer(r.dataset.id, r.dataset.k));
     });
   }
-  fetch("ads.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
+  fetch("ads.json", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(d => {
     ADS = d.ads;
     const present = new Set(ADS.map(a => a.kind));
     pills.innerHTML = KINDS.filter(k => k[0] === "all" || present.has(k[0])).map((k, i) => `<button type="button" data-f="${k[0]}" aria-pressed="${!i}">${k[1]}</button>`).join("");
